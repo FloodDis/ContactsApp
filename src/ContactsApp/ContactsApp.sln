@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33205.214
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.View", "ContactsApp.View\ContactsApp.View.csproj", "{0E0AC817-95B5-489F-8374-883EFAA52AC7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.View", "ContactsApp.View\ContactsApp.View.csproj", "{4D740AF6-D206-4762-AC4D-B49D348193FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model", "ContactsApp.Model\ContactsApp.Model.csproj", "{0C954C1A-F3F2-45C1-8FAB-1527C7B6B9FA}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp.Model", "ContactsApp.Model\ContactsApp.Model.csproj", "{FCA0AF46-AC7F-4131-AF44-97107AB18A56}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0E0AC817-95B5-489F-8374-883EFAA52AC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E0AC817-95B5-489F-8374-883EFAA52AC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E0AC817-95B5-489F-8374-883EFAA52AC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E0AC817-95B5-489F-8374-883EFAA52AC7}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0C954C1A-F3F2-45C1-8FAB-1527C7B6B9FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0C954C1A-F3F2-45C1-8FAB-1527C7B6B9FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0C954C1A-F3F2-45C1-8FAB-1527C7B6B9FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0C954C1A-F3F2-45C1-8FAB-1527C7B6B9FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D740AF6-D206-4762-AC4D-B49D348193FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D740AF6-D206-4762-AC4D-B49D348193FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D740AF6-D206-4762-AC4D-B49D348193FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D740AF6-D206-4762-AC4D-B49D348193FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FCA0AF46-AC7F-4131-AF44-97107AB18A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FCA0AF46-AC7F-4131-AF44-97107AB18A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FCA0AF46-AC7F-4131-AF44-97107AB18A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FCA0AF46-AC7F-4131-AF44-97107AB18A56}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
