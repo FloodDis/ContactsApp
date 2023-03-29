@@ -29,138 +29,351 @@
 		private void InitializeComponent()
 		{
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-			this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-			this.panel1 = new System.Windows.Forms.Panel();
-			this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-			this.button3 = new System.Windows.Forms.Button();
-			this.button2 = new System.Windows.Forms.Button();
-			this.button1 = new System.Windows.Forms.Button();
-			this.label1 = new System.Windows.Forms.Label();
-			this.textBox1 = new System.Windows.Forms.TextBox();
-			this.listBox1 = new System.Windows.Forms.ListBox();
-			this.panel2 = new System.Windows.Forms.Panel();
-			this.tableLayoutPanel1.SuspendLayout();
-			this.panel1.SuspendLayout();
-			this.tableLayoutPanel2.SuspendLayout();
+			this.ContactsAppTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.ContactsManagementPanel = new System.Windows.Forms.Panel();
+			this.ButtonsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
+			this.RemoveContactButton = new System.Windows.Forms.Button();
+			this.EditContactButton = new System.Windows.Forms.Button();
+			this.AddContactButton = new System.Windows.Forms.Button();
+			this.FindContactLabel = new System.Windows.Forms.Label();
+			this.FindTextBox = new System.Windows.Forms.TextBox();
+			this.ContactsListBox = new System.Windows.Forms.ListBox();
+			this.ContactDisplayPanel = new System.Windows.Forms.Panel();
+			this.NotificationPanel = new System.Windows.Forms.Panel();
+			this.CloseNotificationButton = new System.Windows.Forms.Button();
+			this.NotificationSurnamesLabel = new System.Windows.Forms.Label();
+			this.NotficationBirthdayLabel = new System.Windows.Forms.Label();
+			this.NotificationPictureBox = new System.Windows.Forms.PictureBox();
+			this.VKTextBox = new System.Windows.Forms.TextBox();
+			this.VKLabel = new System.Windows.Forms.Label();
+			this.DateOfBirthTextBox = new System.Windows.Forms.TextBox();
+			this.DateOfBirthLabel = new System.Windows.Forms.Label();
+			this.PhoneNumberTextBox = new System.Windows.Forms.TextBox();
+			this.PhoneNumberLabel = new System.Windows.Forms.Label();
+			this.EmailTextBox = new System.Windows.Forms.TextBox();
+			this.EmailLabel = new System.Windows.Forms.Label();
+			this.FullNameTextBox = new System.Windows.Forms.TextBox();
+			this.FullNameLabel = new System.Windows.Forms.Label();
+			this.ContactPictureBox = new System.Windows.Forms.PictureBox();
+			this.ContactsAppTableLayoutPanel.SuspendLayout();
+			this.ContactsManagementPanel.SuspendLayout();
+			this.ButtonsTableLayoutPanel.SuspendLayout();
+			this.ContactDisplayPanel.SuspendLayout();
+			this.NotificationPanel.SuspendLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).BeginInit();
+			((System.ComponentModel.ISupportInitialize)(this.ContactPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
-			// tableLayoutPanel1
+			// ContactsAppTableLayoutPanel
 			// 
-			this.tableLayoutPanel1.ColumnCount = 2;
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
-			this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 0);
-			this.tableLayoutPanel1.Controls.Add(this.panel2, 1, 0);
-			this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-			this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-			this.tableLayoutPanel1.RowCount = 1;
-			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(800, 450);
-			this.tableLayoutPanel1.TabIndex = 0;
+			this.ContactsAppTableLayoutPanel.ColumnCount = 2;
+			this.ContactsAppTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
+			this.ContactsAppTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.ContactsAppTableLayoutPanel.Controls.Add(this.ContactsManagementPanel, 0, 0);
+			this.ContactsAppTableLayoutPanel.Controls.Add(this.ContactDisplayPanel, 1, 0);
+			this.ContactsAppTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ContactsAppTableLayoutPanel.Location = new System.Drawing.Point(0, 0);
+			this.ContactsAppTableLayoutPanel.Name = "ContactsAppTableLayoutPanel";
+			this.ContactsAppTableLayoutPanel.RowCount = 1;
+			this.ContactsAppTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.ContactsAppTableLayoutPanel.Size = new System.Drawing.Size(800, 450);
+			this.ContactsAppTableLayoutPanel.TabIndex = 0;
 			// 
-			// panel1
+			// ContactsManagementPanel
 			// 
-			this.panel1.Controls.Add(this.tableLayoutPanel2);
-			this.panel1.Controls.Add(this.label1);
-			this.panel1.Controls.Add(this.textBox1);
-			this.panel1.Controls.Add(this.listBox1);
-			this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel1.Location = new System.Drawing.Point(3, 3);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(244, 444);
-			this.panel1.TabIndex = 0;
+			this.ContactsManagementPanel.Controls.Add(this.ButtonsTableLayoutPanel);
+			this.ContactsManagementPanel.Controls.Add(this.FindContactLabel);
+			this.ContactsManagementPanel.Controls.Add(this.FindTextBox);
+			this.ContactsManagementPanel.Controls.Add(this.ContactsListBox);
+			this.ContactsManagementPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ContactsManagementPanel.Location = new System.Drawing.Point(3, 3);
+			this.ContactsManagementPanel.Name = "ContactsManagementPanel";
+			this.ContactsManagementPanel.Size = new System.Drawing.Size(244, 444);
+			this.ContactsManagementPanel.TabIndex = 0;
 			// 
-			// tableLayoutPanel2
+			// ButtonsTableLayoutPanel
 			// 
-			this.tableLayoutPanel2.ColumnCount = 3;
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-			this.tableLayoutPanel2.Controls.Add(this.button3, 2, 0);
-			this.tableLayoutPanel2.Controls.Add(this.button2, 1, 0);
-			this.tableLayoutPanel2.Controls.Add(this.button1, 0, 0);
-			this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 407);
-			this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-			this.tableLayoutPanel2.RowCount = 1;
-			this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-			this.tableLayoutPanel2.Size = new System.Drawing.Size(238, 34);
-			this.tableLayoutPanel2.TabIndex = 6;
+			this.ButtonsTableLayoutPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.ButtonsTableLayoutPanel.ColumnCount = 3;
+			this.ButtonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.ButtonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.ButtonsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+			this.ButtonsTableLayoutPanel.Controls.Add(this.RemoveContactButton, 2, 0);
+			this.ButtonsTableLayoutPanel.Controls.Add(this.EditContactButton, 1, 0);
+			this.ButtonsTableLayoutPanel.Controls.Add(this.AddContactButton, 0, 0);
+			this.ButtonsTableLayoutPanel.Location = new System.Drawing.Point(3, 407);
+			this.ButtonsTableLayoutPanel.Name = "ButtonsTableLayoutPanel";
+			this.ButtonsTableLayoutPanel.RowCount = 1;
+			this.ButtonsTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+			this.ButtonsTableLayoutPanel.Size = new System.Drawing.Size(238, 34);
+			this.ButtonsTableLayoutPanel.TabIndex = 6;
 			// 
-			// button3
+			// RemoveContactButton
 			// 
-			this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button3.FlatAppearance.BorderSize = 0;
-			this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button3.Location = new System.Drawing.Point(158, 0);
-			this.button3.Margin = new System.Windows.Forms.Padding(0);
-			this.button3.Name = "button3";
-			this.button3.Size = new System.Drawing.Size(80, 34);
-			this.button3.TabIndex = 2;
-			this.button3.Text = "button3";
-			this.button3.UseVisualStyleBackColor = true;
+			this.RemoveContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.RemoveContactButton.FlatAppearance.BorderSize = 0;
+			this.RemoveContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.RemoveContactButton.Image = global::ContactsApp.View.Properties.Resources.remove_contact_32x32_gray;
+			this.RemoveContactButton.Location = new System.Drawing.Point(158, 0);
+			this.RemoveContactButton.Margin = new System.Windows.Forms.Padding(0);
+			this.RemoveContactButton.Name = "RemoveContactButton";
+			this.RemoveContactButton.Size = new System.Drawing.Size(80, 34);
+			this.RemoveContactButton.TabIndex = 2;
+			this.RemoveContactButton.UseVisualStyleBackColor = true;
 			// 
-			// button2
+			// EditContactButton
 			// 
-			this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button2.FlatAppearance.BorderSize = 0;
-			this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button2.Location = new System.Drawing.Point(79, 0);
-			this.button2.Margin = new System.Windows.Forms.Padding(0);
-			this.button2.Name = "button2";
-			this.button2.Size = new System.Drawing.Size(79, 34);
-			this.button2.TabIndex = 1;
-			this.button2.Text = "button2";
-			this.button2.UseVisualStyleBackColor = true;
+			this.EditContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.EditContactButton.FlatAppearance.BorderSize = 0;
+			this.EditContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.EditContactButton.Image = global::ContactsApp.View.Properties.Resources.edit_contact_32x32_gray;
+			this.EditContactButton.Location = new System.Drawing.Point(79, 0);
+			this.EditContactButton.Margin = new System.Windows.Forms.Padding(0);
+			this.EditContactButton.Name = "EditContactButton";
+			this.EditContactButton.Size = new System.Drawing.Size(79, 34);
+			this.EditContactButton.TabIndex = 1;
+			this.EditContactButton.UseVisualStyleBackColor = true;
 			// 
-			// button1
+			// AddContactButton
 			// 
-			this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.button1.FlatAppearance.BorderSize = 0;
-			this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.button1.Location = new System.Drawing.Point(0, 0);
-			this.button1.Margin = new System.Windows.Forms.Padding(0);
-			this.button1.Name = "button1";
-			this.button1.Size = new System.Drawing.Size(79, 34);
-			this.button1.TabIndex = 0;
-			this.button1.Text = "button1";
-			this.button1.UseVisualStyleBackColor = true;
+			this.AddContactButton.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.AddContactButton.FlatAppearance.BorderSize = 0;
+			this.AddContactButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.AddContactButton.Image = global::ContactsApp.View.Properties.Resources.add_contact_32x32_gray;
+			this.AddContactButton.Location = new System.Drawing.Point(0, 0);
+			this.AddContactButton.Margin = new System.Windows.Forms.Padding(0);
+			this.AddContactButton.Name = "AddContactButton";
+			this.AddContactButton.Size = new System.Drawing.Size(79, 34);
+			this.AddContactButton.TabIndex = 0;
+			this.AddContactButton.UseVisualStyleBackColor = true;
+			this.AddContactButton.Click += new System.EventHandler(this.AddContactButton_Click);
+			this.AddContactButton.MouseEnter += new System.EventHandler(this.AddContactButton_MouseEnter);
+			this.AddContactButton.MouseLeave += new System.EventHandler(this.AddContactButton_MouseLeave);
 			// 
-			// label1
+			// FindContactLabel
 			// 
-			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(3, 5);
-			this.label1.Name = "label1";
-			this.label1.Size = new System.Drawing.Size(33, 15);
-			this.label1.TabIndex = 2;
-			this.label1.Text = "Find:";
+			this.FindContactLabel.AutoSize = true;
+			this.FindContactLabel.Location = new System.Drawing.Point(3, 5);
+			this.FindContactLabel.Name = "FindContactLabel";
+			this.FindContactLabel.Size = new System.Drawing.Size(33, 15);
+			this.FindContactLabel.TabIndex = 2;
+			this.FindContactLabel.Text = "Find:";
 			// 
-			// textBox1
+			// FindTextBox
 			// 
-			this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-			this.textBox1.Location = new System.Drawing.Point(42, 3);
-			this.textBox1.Name = "textBox1";
-			this.textBox1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-			this.textBox1.Size = new System.Drawing.Size(199, 23);
-			this.textBox1.TabIndex = 1;
+			this.FindTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.FindTextBox.Location = new System.Drawing.Point(42, 3);
+			this.FindTextBox.Name = "FindTextBox";
+			this.FindTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
+			this.FindTextBox.Size = new System.Drawing.Size(199, 23);
+			this.FindTextBox.TabIndex = 1;
 			// 
-			// listBox1
+			// ContactsListBox
 			// 
-			this.listBox1.FormattingEnabled = true;
-			this.listBox1.IntegralHeight = false;
-			this.listBox1.ItemHeight = 15;
-			this.listBox1.Location = new System.Drawing.Point(3, 32);
-			this.listBox1.Name = "listBox1";
-			this.listBox1.Size = new System.Drawing.Size(238, 376);
-			this.listBox1.TabIndex = 0;
+			this.ContactsListBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.ContactsListBox.FormattingEnabled = true;
+			this.ContactsListBox.IntegralHeight = false;
+			this.ContactsListBox.ItemHeight = 15;
+			this.ContactsListBox.Items.AddRange(new object[] {
+            "Абдулбасиров Магомедтагир",
+            "Абельцев Сергей",
+            "Аверчев Владимир",
+            "Агафонов Валентин",
+            "Агафонов Егор",
+            "Адамишин Анатолий",
+            "Айздердзис Андрей",
+            "Айпин Еремей",
+            "Акбаев Азрет"});
+			this.ContactsListBox.Location = new System.Drawing.Point(3, 32);
+			this.ContactsListBox.Name = "ContactsListBox";
+			this.ContactsListBox.Size = new System.Drawing.Size(238, 375);
+			this.ContactsListBox.TabIndex = 0;
 			// 
-			// panel2
+			// ContactDisplayPanel
 			// 
-			this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.panel2.Location = new System.Drawing.Point(253, 3);
-			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(544, 444);
-			this.panel2.TabIndex = 1;
+			this.ContactDisplayPanel.Controls.Add(this.NotificationPanel);
+			this.ContactDisplayPanel.Controls.Add(this.VKTextBox);
+			this.ContactDisplayPanel.Controls.Add(this.VKLabel);
+			this.ContactDisplayPanel.Controls.Add(this.DateOfBirthTextBox);
+			this.ContactDisplayPanel.Controls.Add(this.DateOfBirthLabel);
+			this.ContactDisplayPanel.Controls.Add(this.PhoneNumberTextBox);
+			this.ContactDisplayPanel.Controls.Add(this.PhoneNumberLabel);
+			this.ContactDisplayPanel.Controls.Add(this.EmailTextBox);
+			this.ContactDisplayPanel.Controls.Add(this.EmailLabel);
+			this.ContactDisplayPanel.Controls.Add(this.FullNameTextBox);
+			this.ContactDisplayPanel.Controls.Add(this.FullNameLabel);
+			this.ContactDisplayPanel.Controls.Add(this.ContactPictureBox);
+			this.ContactDisplayPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.ContactDisplayPanel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+			this.ContactDisplayPanel.Location = new System.Drawing.Point(253, 3);
+			this.ContactDisplayPanel.Name = "ContactDisplayPanel";
+			this.ContactDisplayPanel.Size = new System.Drawing.Size(544, 444);
+			this.ContactDisplayPanel.TabIndex = 1;
+			// 
+			// NotificationPanel
+			// 
+			this.NotificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.NotificationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
+			this.NotificationPanel.Controls.Add(this.CloseNotificationButton);
+			this.NotificationPanel.Controls.Add(this.NotificationSurnamesLabel);
+			this.NotificationPanel.Controls.Add(this.NotficationBirthdayLabel);
+			this.NotificationPanel.Controls.Add(this.NotificationPictureBox);
+			this.NotificationPanel.Location = new System.Drawing.Point(0, 369);
+			this.NotificationPanel.Name = "NotificationPanel";
+			this.NotificationPanel.Size = new System.Drawing.Size(544, 75);
+			this.NotificationPanel.TabIndex = 11;
+			// 
+			// CloseNotificationButton
+			// 
+			this.CloseNotificationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+			this.CloseNotificationButton.FlatAppearance.BorderSize = 0;
+			this.CloseNotificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+			this.CloseNotificationButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32;
+			this.CloseNotificationButton.Location = new System.Drawing.Point(509, 3);
+			this.CloseNotificationButton.Name = "CloseNotificationButton";
+			this.CloseNotificationButton.Size = new System.Drawing.Size(32, 32);
+			this.CloseNotificationButton.TabIndex = 3;
+			this.CloseNotificationButton.UseVisualStyleBackColor = true;
+			// 
+			// NotificationSurnamesLabel
+			// 
+			this.NotificationSurnamesLabel.AutoSize = true;
+			this.NotificationSurnamesLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.NotificationSurnamesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+			this.NotificationSurnamesLabel.Location = new System.Drawing.Point(79, 38);
+			this.NotificationSurnamesLabel.Name = "NotificationSurnamesLabel";
+			this.NotificationSurnamesLabel.Size = new System.Drawing.Size(192, 15);
+			this.NotificationSurnamesLabel.TabIndex = 2;
+			this.NotificationSurnamesLabel.Text = "Абакумов, Петров, Иванов и др.";
+			// 
+			// NotficationBirthdayLabel
+			// 
+			this.NotficationBirthdayLabel.AutoSize = true;
+			this.NotficationBirthdayLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+			this.NotficationBirthdayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
+			this.NotficationBirthdayLabel.Location = new System.Drawing.Point(79, 23);
+			this.NotficationBirthdayLabel.Name = "NotficationBirthdayLabel";
+			this.NotficationBirthdayLabel.Size = new System.Drawing.Size(127, 15);
+			this.NotficationBirthdayLabel.TabIndex = 1;
+			this.NotficationBirthdayLabel.Text = "Today is a Bitrhday of:";
+			// 
+			// NotificationPictureBox
+			// 
+			this.NotificationPictureBox.Image = global::ContactsApp.View.Properties.Resources.info_48x48;
+			this.NotificationPictureBox.Location = new System.Drawing.Point(3, 3);
+			this.NotificationPictureBox.Name = "NotificationPictureBox";
+			this.NotificationPictureBox.Size = new System.Drawing.Size(70, 70);
+			this.NotificationPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.NotificationPictureBox.TabIndex = 0;
+			this.NotificationPictureBox.TabStop = false;
+			// 
+			// VKTextBox
+			// 
+			this.VKTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.VKTextBox.Location = new System.Drawing.Point(109, 239);
+			this.VKTextBox.Name = "VKTextBox";
+			this.VKTextBox.Size = new System.Drawing.Size(175, 23);
+			this.VKTextBox.TabIndex = 10;
+			// 
+			// VKLabel
+			// 
+			this.VKLabel.AutoSize = true;
+			this.VKLabel.Location = new System.Drawing.Point(109, 221);
+			this.VKLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+			this.VKLabel.Name = "VKLabel";
+			this.VKLabel.Size = new System.Drawing.Size(24, 15);
+			this.VKLabel.TabIndex = 9;
+			this.VKLabel.Text = "VK:";
+			// 
+			// DateOfBirthTextBox
+			// 
+			this.DateOfBirthTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.DateOfBirthTextBox.Location = new System.Drawing.Point(109, 185);
+			this.DateOfBirthTextBox.Name = "DateOfBirthTextBox";
+			this.DateOfBirthTextBox.Size = new System.Drawing.Size(175, 23);
+			this.DateOfBirthTextBox.TabIndex = 8;
+			// 
+			// DateOfBirthLabel
+			// 
+			this.DateOfBirthLabel.AutoSize = true;
+			this.DateOfBirthLabel.Location = new System.Drawing.Point(109, 167);
+			this.DateOfBirthLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+			this.DateOfBirthLabel.Name = "DateOfBirthLabel";
+			this.DateOfBirthLabel.Size = new System.Drawing.Size(76, 15);
+			this.DateOfBirthLabel.TabIndex = 7;
+			this.DateOfBirthLabel.Text = "Date of Birth:";
+			// 
+			// PhoneNumberTextBox
+			// 
+			this.PhoneNumberTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.PhoneNumberTextBox.Location = new System.Drawing.Point(109, 131);
+			this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
+			this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 23);
+			this.PhoneNumberTextBox.TabIndex = 6;
+			this.PhoneNumberTextBox.Text = "+7(999) 111-22-33";
+			// 
+			// PhoneNumberLabel
+			// 
+			this.PhoneNumberLabel.AutoSize = true;
+			this.PhoneNumberLabel.Location = new System.Drawing.Point(109, 113);
+			this.PhoneNumberLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+			this.PhoneNumberLabel.Name = "PhoneNumberLabel";
+			this.PhoneNumberLabel.Size = new System.Drawing.Size(88, 15);
+			this.PhoneNumberLabel.TabIndex = 5;
+			this.PhoneNumberLabel.Text = "PhoneNumber:";
+			// 
+			// EmailTextBox
+			// 
+			this.EmailTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.EmailTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.EmailTextBox.Location = new System.Drawing.Point(109, 77);
+			this.EmailTextBox.Name = "EmailTextBox";
+			this.EmailTextBox.Size = new System.Drawing.Size(435, 23);
+			this.EmailTextBox.TabIndex = 4;
+			this.EmailTextBox.Text = "abakumov@no.mail";
+			// 
+			// EmailLabel
+			// 
+			this.EmailLabel.AutoSize = true;
+			this.EmailLabel.Location = new System.Drawing.Point(109, 59);
+			this.EmailLabel.Margin = new System.Windows.Forms.Padding(3, 10, 3, 0);
+			this.EmailLabel.Name = "EmailLabel";
+			this.EmailLabel.Size = new System.Drawing.Size(44, 15);
+			this.EmailLabel.TabIndex = 3;
+			this.EmailLabel.Text = "E-mail:";
+			// 
+			// FullNameTextBox
+			// 
+			this.FullNameTextBox.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+			this.FullNameTextBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+			this.FullNameTextBox.Location = new System.Drawing.Point(109, 23);
+			this.FullNameTextBox.Name = "FullNameTextBox";
+			this.FullNameTextBox.Size = new System.Drawing.Size(435, 23);
+			this.FullNameTextBox.TabIndex = 2;
+			this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
+			// 
+			// FullNameLabel
+			// 
+			this.FullNameLabel.AutoSize = true;
+			this.FullNameLabel.Location = new System.Drawing.Point(109, 5);
+			this.FullNameLabel.Name = "FullNameLabel";
+			this.FullNameLabel.Size = new System.Drawing.Size(64, 15);
+			this.FullNameLabel.TabIndex = 1;
+			this.FullNameLabel.Text = "Full Name:";
+			// 
+			// ContactPictureBox
+			// 
+			this.ContactPictureBox.Image = global::ContactsApp.View.Properties.Resources.photo_placeholder_100x100;
+			this.ContactPictureBox.Location = new System.Drawing.Point(3, 3);
+			this.ContactPictureBox.Name = "ContactPictureBox";
+			this.ContactPictureBox.Size = new System.Drawing.Size(100, 100);
+			this.ContactPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+			this.ContactPictureBox.TabIndex = 0;
+			this.ContactPictureBox.TabStop = false;
 			// 
 			// MainForm
 			// 
@@ -168,29 +381,51 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.BackColor = System.Drawing.Color.White;
 			this.ClientSize = new System.Drawing.Size(800, 450);
-			this.Controls.Add(this.tableLayoutPanel1);
+			this.Controls.Add(this.ContactsAppTableLayoutPanel);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "MainForm";
 			this.Text = "ContactsApp";
-			this.tableLayoutPanel1.ResumeLayout(false);
-			this.panel1.ResumeLayout(false);
-			this.panel1.PerformLayout();
-			this.tableLayoutPanel2.ResumeLayout(false);
+			this.ContactsAppTableLayoutPanel.ResumeLayout(false);
+			this.ContactsManagementPanel.ResumeLayout(false);
+			this.ContactsManagementPanel.PerformLayout();
+			this.ButtonsTableLayoutPanel.ResumeLayout(false);
+			this.ContactDisplayPanel.ResumeLayout(false);
+			this.ContactDisplayPanel.PerformLayout();
+			this.NotificationPanel.ResumeLayout(false);
+			this.NotificationPanel.PerformLayout();
+			((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).EndInit();
+			((System.ComponentModel.ISupportInitialize)(this.ContactPictureBox)).EndInit();
 			this.ResumeLayout(false);
 
 		}
 
 		#endregion
 
-		private TableLayoutPanel tableLayoutPanel1;
-		private Panel panel1;
-		private Panel panel2;
-		private Label label1;
-		private TextBox textBox1;
-		private ListBox listBox1;
-		private TableLayoutPanel tableLayoutPanel2;
-		private Button button3;
-		private Button button2;
-		private Button button1;
+		private TableLayoutPanel ContactsAppTableLayoutPanel;
+		private Panel ContactsManagementPanel;
+		private Panel ContactDisplayPanel;
+		private Label FindContactLabel;
+		private TextBox FindTextBox;
+		private ListBox ContactsListBox;
+		private TableLayoutPanel ButtonsTableLayoutPanel;
+		private Button RemoveContactButton;
+		private Button EditContactButton;
+		private Button AddContactButton;
+		private PictureBox ContactPictureBox;
+		private Label FullNameLabel;
+		private TextBox FullNameTextBox;
+		private Label EmailLabel;
+		private TextBox PhoneNumberTextBox;
+		private Label PhoneNumberLabel;
+		private TextBox EmailTextBox;
+		private TextBox VKTextBox;
+		private Label VKLabel;
+		private TextBox DateOfBirthTextBox;
+		private Label DateOfBirthLabel;
+		private Panel NotificationPanel;
+		private PictureBox NotificationPictureBox;
+		private Label NotficationBirthdayLabel;
+		private Label NotificationSurnamesLabel;
+		private Button CloseNotificationButton;
 	}
 }
