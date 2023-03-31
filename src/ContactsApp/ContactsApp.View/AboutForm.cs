@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,43 @@ namespace ContactsApp.View
 {
 	public partial class AboutForm : Form
 	{
+		private string _gitHubLink = "https://github.com/FloodDis";
+
+		private string _iconsLink = "https://icons8.com/";
+
 		public AboutForm()
 		{
 			InitializeComponent();
+		}
+
+		private void GitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			ProcessStartInfo processStartInfo = new()
+			{
+				FileName = _gitHubLink,
+				UseShellExecute = true
+			};
+			Process.Start(processStartInfo);
+		}
+
+		private void IconsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+		{
+			ProcessStartInfo processStartInfo = new()
+			{
+				FileName = _iconsLink,
+				UseShellExecute = true
+			};
+			Process.Start(processStartInfo);
+		}
+
+		private void OKButton_Click(object sender, EventArgs e)
+		{
+			Close();
+		}
+
+		private void LicenseTextBox_KeyPress(object sender, KeyPressEventArgs e)
+		{
+			e.Handled = true;
 		}
 	}
 }

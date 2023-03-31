@@ -115,7 +115,7 @@
 			this.OKButton.Location = new System.Drawing.Point(358, 12);
 			this.OKButton.Margin = new System.Windows.Forms.Padding(0, 0, 9, 0);
 			this.OKButton.Name = "OKButton";
-			this.OKButton.Size = new System.Drawing.Size(73, 21);
+			this.OKButton.Size = new System.Drawing.Size(73, 22);
 			this.OKButton.TabIndex = 1;
 			this.OKButton.Text = "OK";
 			this.OKButton.UseVisualStyleBackColor = true;
@@ -125,7 +125,7 @@
 			this.CancelButton.Location = new System.Drawing.Point(440, 12);
 			this.CancelButton.Margin = new System.Windows.Forms.Padding(0, 13, 14, 13);
 			this.CancelButton.Name = "CancelButton";
-			this.CancelButton.Size = new System.Drawing.Size(73, 21);
+			this.CancelButton.Size = new System.Drawing.Size(73, 22);
 			this.CancelButton.TabIndex = 0;
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
