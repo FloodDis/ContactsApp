@@ -9,47 +9,46 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ContactsApp.View
+namespace ContactsApp.View;
+
+public partial class AboutForm : Form
 {
-	public partial class AboutForm : Form
+	private string _gitHubLink = "https://github.com/FloodDis";
+
+	private string _iconsLink = "https://icons8.com/";
+
+	public AboutForm()
 	{
-		private string _gitHubLink = "https://github.com/FloodDis";
+		InitializeComponent();
+	}
 
-		private string _iconsLink = "https://icons8.com/";
-
-		public AboutForm()
+	private void GitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+	{
+		ProcessStartInfo processStartInfo = new()
 		{
-			InitializeComponent();
-		}
+			FileName = _gitHubLink,
+			UseShellExecute = true
+		};
+		Process.Start(processStartInfo);
+	}
 
-		private void GitHubLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+	private void IconsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+	{
+		ProcessStartInfo processStartInfo = new()
 		{
-			ProcessStartInfo processStartInfo = new()
-			{
-				FileName = _gitHubLink,
-				UseShellExecute = true
-			};
-			Process.Start(processStartInfo);
-		}
+			FileName = _iconsLink,
+			UseShellExecute = true
+		};
+		Process.Start(processStartInfo);
+	}
 
-		private void IconsLinkLabel_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-		{
-			ProcessStartInfo processStartInfo = new()
-			{
-				FileName = _iconsLink,
-				UseShellExecute = true
-			};
-			Process.Start(processStartInfo);
-		}
+	private void OKButton_Click(object sender, EventArgs e)
+	{
+		Close();
+	}
 
-		private void OKButton_Click(object sender, EventArgs e)
-		{
-			Close();
-		}
-
-		private void LicenseTextBox_KeyPress(object sender, KeyPressEventArgs e)
-		{
-			e.Handled = true;
-		}
+	private void LicenseTextBox_KeyPress(object sender, KeyPressEventArgs e)
+	{
+		e.Handled = true;
 	}
 }
