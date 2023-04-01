@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
 namespace ContactsApp.Model;
 
 /// <summary>
-/// Класс контакта.
+/// Описывает контакт.
 /// </summary>
 public class Contact
 {
