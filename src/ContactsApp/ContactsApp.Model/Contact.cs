@@ -10,7 +10,7 @@ namespace ContactsApp.Model;
 /// <summary>
 /// Класс контакта.
 /// </summary>
-internal class Contact
+public class Contact
 {
 	/// <summary>
 	/// Полное имя контакта.
