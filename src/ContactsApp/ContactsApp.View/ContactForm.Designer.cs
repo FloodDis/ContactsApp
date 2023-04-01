@@ -31,14 +31,9 @@
 			this.ContactPanel = new System.Windows.Forms.Panel();
 			this.AddPhotoButton = new System.Windows.Forms.PictureBox();
 			this.DateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
-			this.panel1 = new System.Windows.Forms.Panel();
+			this.FooterPanel = new System.Windows.Forms.Panel();
 			this.OKButton = new System.Windows.Forms.Button();
 			this.CancelButton = new System.Windows.Forms.Button();
-			this.NotificationPanel = new System.Windows.Forms.Panel();
-			this.CloseNotificationButton = new System.Windows.Forms.Button();
-			this.NotificationSurnamesLabel = new System.Windows.Forms.Label();
-			this.NotficationBirthdayLabel = new System.Windows.Forms.Label();
-			this.NotificationPictureBox = new System.Windows.Forms.PictureBox();
 			this.VKTextBox = new System.Windows.Forms.TextBox();
 			this.VKLabel = new System.Windows.Forms.Label();
 			this.DateOfBirthLabel = new System.Windows.Forms.Label();
@@ -51,9 +46,7 @@
 			this.ContactPictureBox = new System.Windows.Forms.PictureBox();
 			this.ContactPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).BeginInit();
-			this.panel1.SuspendLayout();
-			this.NotificationPanel.SuspendLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).BeginInit();
+			this.FooterPanel.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.ContactPictureBox)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -61,8 +54,7 @@
 			// 
 			this.ContactPanel.Controls.Add(this.AddPhotoButton);
 			this.ContactPanel.Controls.Add(this.DateOfBirthDateTimePicker);
-			this.ContactPanel.Controls.Add(this.panel1);
-			this.ContactPanel.Controls.Add(this.NotificationPanel);
+			this.ContactPanel.Controls.Add(this.FooterPanel);
 			this.ContactPanel.Controls.Add(this.VKTextBox);
 			this.ContactPanel.Controls.Add(this.VKLabel);
 			this.ContactPanel.Controls.Add(this.DateOfBirthLabel);
@@ -100,15 +92,15 @@
 			this.DateOfBirthDateTimePicker.Size = new System.Drawing.Size(175, 23);
 			this.DateOfBirthDateTimePicker.TabIndex = 13;
 			// 
-			// panel1
+			// FooterPanel
 			// 
-			this.panel1.BackColor = System.Drawing.Color.WhiteSmoke;
-			this.panel1.Controls.Add(this.OKButton);
-			this.panel1.Controls.Add(this.CancelButton);
-			this.panel1.Location = new System.Drawing.Point(0, 295);
-			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(525, 46);
-			this.panel1.TabIndex = 12;
+			this.FooterPanel.BackColor = System.Drawing.Color.WhiteSmoke;
+			this.FooterPanel.Controls.Add(this.OKButton);
+			this.FooterPanel.Controls.Add(this.CancelButton);
+			this.FooterPanel.Location = new System.Drawing.Point(0, 295);
+			this.FooterPanel.Name = "FooterPanel";
+			this.FooterPanel.Size = new System.Drawing.Size(525, 46);
+			this.FooterPanel.TabIndex = 12;
 			// 
 			// OKButton
 			// 
@@ -130,64 +122,6 @@
 			this.CancelButton.Text = "Cancel";
 			this.CancelButton.UseVisualStyleBackColor = true;
 			this.CancelButton.Click += new System.EventHandler(this.CancelButton_Click);
-			// 
-			// NotificationPanel
-			// 
-			this.NotificationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-			this.NotificationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(245)))), ((int)(((byte)(245)))), ((int)(((byte)(255)))));
-			this.NotificationPanel.Controls.Add(this.CloseNotificationButton);
-			this.NotificationPanel.Controls.Add(this.NotificationSurnamesLabel);
-			this.NotificationPanel.Controls.Add(this.NotficationBirthdayLabel);
-			this.NotificationPanel.Controls.Add(this.NotificationPictureBox);
-			this.NotificationPanel.Location = new System.Drawing.Point(0, 610);
-			this.NotificationPanel.Name = "NotificationPanel";
-			this.NotificationPanel.Size = new System.Drawing.Size(869, 75);
-			this.NotificationPanel.TabIndex = 11;
-			// 
-			// CloseNotificationButton
-			// 
-			this.CloseNotificationButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-			this.CloseNotificationButton.FlatAppearance.BorderSize = 0;
-			this.CloseNotificationButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-			this.CloseNotificationButton.Image = global::ContactsApp.View.Properties.Resources.close_32x32;
-			this.CloseNotificationButton.Location = new System.Drawing.Point(1178, 3);
-			this.CloseNotificationButton.Name = "CloseNotificationButton";
-			this.CloseNotificationButton.Size = new System.Drawing.Size(32, 32);
-			this.CloseNotificationButton.TabIndex = 3;
-			this.CloseNotificationButton.UseVisualStyleBackColor = true;
-			// 
-			// NotificationSurnamesLabel
-			// 
-			this.NotificationSurnamesLabel.AutoSize = true;
-			this.NotificationSurnamesLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.NotificationSurnamesLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-			this.NotificationSurnamesLabel.Location = new System.Drawing.Point(79, 38);
-			this.NotificationSurnamesLabel.Name = "NotificationSurnamesLabel";
-			this.NotificationSurnamesLabel.Size = new System.Drawing.Size(192, 15);
-			this.NotificationSurnamesLabel.TabIndex = 2;
-			this.NotificationSurnamesLabel.Text = "Абакумов, Петров, Иванов и др.";
-			// 
-			// NotficationBirthdayLabel
-			// 
-			this.NotficationBirthdayLabel.AutoSize = true;
-			this.NotficationBirthdayLabel.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-			this.NotficationBirthdayLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(144)))), ((int)(((byte)(255)))));
-			this.NotficationBirthdayLabel.Location = new System.Drawing.Point(79, 23);
-			this.NotficationBirthdayLabel.Name = "NotficationBirthdayLabel";
-			this.NotficationBirthdayLabel.Size = new System.Drawing.Size(127, 15);
-			this.NotficationBirthdayLabel.TabIndex = 1;
-			this.NotficationBirthdayLabel.Text = "Today is a Bitrhday of:";
-			// 
-			// NotificationPictureBox
-			// 
-			this.NotificationPictureBox.Image = global::ContactsApp.View.Properties.Resources.info_48x48;
-			this.NotificationPictureBox.Location = new System.Drawing.Point(3, 3);
-			this.NotificationPictureBox.Name = "NotificationPictureBox";
-			this.NotificationPictureBox.Size = new System.Drawing.Size(70, 70);
-			this.NotificationPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-			this.NotificationPictureBox.TabIndex = 0;
-			this.NotificationPictureBox.TabStop = false;
 			// 
 			// VKTextBox
 			// 
@@ -301,10 +235,7 @@
 			this.ContactPanel.ResumeLayout(false);
 			this.ContactPanel.PerformLayout();
 			((System.ComponentModel.ISupportInitialize)(this.AddPhotoButton)).EndInit();
-			this.panel1.ResumeLayout(false);
-			this.NotificationPanel.ResumeLayout(false);
-			this.NotificationPanel.PerformLayout();
-			((System.ComponentModel.ISupportInitialize)(this.NotificationPictureBox)).EndInit();
+			this.FooterPanel.ResumeLayout(false);
 			((System.ComponentModel.ISupportInitialize)(this.ContactPictureBox)).EndInit();
 			this.ResumeLayout(false);
 
@@ -313,11 +244,6 @@
 		#endregion
 
 		private Panel ContactPanel;
-		private Panel NotificationPanel;
-		private Button CloseNotificationButton;
-		private Label NotificationSurnamesLabel;
-		private Label NotficationBirthdayLabel;
-		private PictureBox NotificationPictureBox;
 		private TextBox VKTextBox;
 		private Label VKLabel;
 		private Label DateOfBirthLabel;
@@ -329,7 +255,7 @@
 		private Label FullNameLabel;
 		private PictureBox ContactPictureBox;
 		private DateTimePicker DateOfBirthDateTimePicker;
-		private Panel panel1;
+		private Panel FooterPanel;
 		private Button OKButton;
 		private Button CancelButton;
 		private PictureBox AddPhotoButton;
