@@ -87,7 +87,18 @@ internal class Contact
 	public DateTime DateOfBirth
 	{
 		get { return _dateOfBirth; }
-		set { _dateOfBirth = value; }
+		set 
+		{
+			if(value.Year < 1900)
+			{
+				throw new ArgumentException("Год рождения не может быть меньше 1900!");
+			}
+			if (value > DateTime.Today)
+			{
+				throw new ArgumentException("Дата рождения не может быть позже сегодняшнего дня!");
+			}
+			_dateOfBirth = value; 
+		}
 	}
 
 	/// <summary>
