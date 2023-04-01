@@ -82,4 +82,13 @@ public partial class MainForm : Form
 			aboutForm.ShowDialog();
 		}
 	}
+
+	private void CloseNotificationButton_Click(object sender, EventArgs e)
+	{
+		CloseNotificationButton.Visible = false;
+		NotificationPanel.Visible = false;
+		NotificationPictureBox.Visible = false;
+		NotificationSurnamesLabel.Visible = false;
+		NotficationBirthdayLabel.Visible = false;
+	}
 }

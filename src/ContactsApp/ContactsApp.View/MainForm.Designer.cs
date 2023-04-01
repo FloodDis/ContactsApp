@@ -238,6 +238,7 @@
 			this.CloseNotificationButton.Size = new System.Drawing.Size(32, 32);
 			this.CloseNotificationButton.TabIndex = 3;
 			this.CloseNotificationButton.UseVisualStyleBackColor = true;
+			this.CloseNotificationButton.Click += new System.EventHandler(this.CloseNotificationButton_Click);
 			// 
 			// NotificationSurnamesLabel
 			// 
