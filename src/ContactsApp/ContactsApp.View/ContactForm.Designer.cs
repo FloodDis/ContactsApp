@@ -159,6 +159,7 @@
 			this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 23);
 			this.PhoneNumberTextBox.TabIndex = 6;
 			this.PhoneNumberTextBox.Text = "+7(999) 111-22-33";
+			this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
 			// 
 			// PhoneNumberLabel
 			// 

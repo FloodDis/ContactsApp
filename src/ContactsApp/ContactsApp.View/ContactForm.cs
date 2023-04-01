@@ -31,4 +31,20 @@ public partial class ContactForm : Form
 	{
 		Close();
 	}
+
+	private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
+	{
+		if ((e.KeyChar >= '0')
+			&& (e.KeyChar <= '9')
+			|| (e.KeyChar == '-')
+			|| (e.KeyChar == '(')
+			|| (e.KeyChar == ')')
+			|| (e.KeyChar == ' ')
+			|| (e.KeyChar == (char)Keys.Back)
+			|| (e.KeyChar == '+'))
+		{
+			return;
+		}
+		e.Handled = true;
+	}
 }
