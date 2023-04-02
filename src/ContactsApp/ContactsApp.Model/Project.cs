@@ -95,4 +95,12 @@ public class Project
 
 		return result;
 	}
+
+	/// <summary>
+	/// Конструктор по умолчанию.
+	/// </summary>
+	public Project()
+	{
+		_contacts = new List<Contact>();
+	}
 }
