@@ -22,11 +22,18 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Обновить отображаемые контакты в ListBox
+	/// Обновить отображаемые контакты в ListBox.
 	/// </summary>
 	private void UpdateListBox()
 	{
-		List<Contact> contacts;
+		List<Contact> contacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		_displayedContacts.Clear();
+		_displayedContacts.AddRange(contacts);
+		ContactsListBox.Items.Clear();
+		foreach(Contact contact in _displayedContacts)
+		{
+			ContactsListBox.Items.Add(contact.FullName);
+		}
 	} 
 
 	private void AddContactButton_MouseEnter(object sender, EventArgs e)
