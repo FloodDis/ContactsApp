@@ -1,11 +1,33 @@
+using ContactsApp.Model;
+using System.ComponentModel.Design;
+
 namespace ContactsApp.View;
 
 public partial class MainForm : Form
 {
+	/// <summary>
+	/// Список всех контактов.
+	/// </summary>
+	private Project _project;
+
+	/// <summary>
+	/// Список отображаемых контактов.
+	/// </summary>
+	private List<Contact> _displayedContacts;
+
 	public MainForm()
 	{
 		InitializeComponent();
+		_project = new Project();
 	}
+
+	/// <summary>
+	/// Обновить отображаемые контакты в ListBox
+	/// </summary>
+	private void UpdateListBox()
+	{
+		List<Contact> contacts;
+	} 
 
 	private void AddContactButton_MouseEnter(object sender, EventArgs e)
 	{

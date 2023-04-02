@@ -177,16 +177,6 @@
 			this.ContactsListBox.FormattingEnabled = true;
 			this.ContactsListBox.IntegralHeight = false;
 			this.ContactsListBox.ItemHeight = 15;
-			this.ContactsListBox.Items.AddRange(new object[] {
-            "Абдулбасиров Магомедтагир",
-            "Абельцев Сергей",
-            "Аверчев Владимир",
-            "Агафонов Валентин",
-            "Агафонов Егор",
-            "Адамишин Анатолий",
-            "Айздердзис Андрей",
-            "Айпин Еремей",
-            "Акбаев Азрет"});
 			this.ContactsListBox.Location = new System.Drawing.Point(3, 32);
 			this.ContactsListBox.Name = "ContactsListBox";
 			this.ContactsListBox.Size = new System.Drawing.Size(238, 375);
@@ -317,7 +307,6 @@
 			this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
 			this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 23);
 			this.PhoneNumberTextBox.TabIndex = 6;
-			this.PhoneNumberTextBox.Text = "+7(999) 111-22-33";
 			this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
 			// 
 			// PhoneNumberLabel
@@ -339,7 +328,6 @@
 			this.EmailTextBox.Name = "EmailTextBox";
 			this.EmailTextBox.Size = new System.Drawing.Size(435, 23);
 			this.EmailTextBox.TabIndex = 4;
-			this.EmailTextBox.Text = "abakumov@no.mail";
 			this.EmailTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.EmailTextBox_KeyPress);
 			// 
 			// EmailLabel
@@ -361,7 +349,6 @@
 			this.FullNameTextBox.Name = "FullNameTextBox";
 			this.FullNameTextBox.Size = new System.Drawing.Size(435, 23);
 			this.FullNameTextBox.TabIndex = 2;
-			this.FullNameTextBox.Text = "Абакумов Дмитрий Николаевич";
 			this.FullNameTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FullNameTextBox_KeyPress);
 			// 
 			// FullNameLabel
