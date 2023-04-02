@@ -36,7 +36,7 @@ public class Project
 	/// Удаляет контакт из списка.
 	/// </summary>
 	/// <param name="index">Индекс контакта.</param>
-	void RemoveContact(int index)
+	public void RemoveContact(int index)
 	{
 		_contacts.RemoveAt(index);
 	}
@@ -45,7 +45,7 @@ public class Project
 	/// Добавляет контакт в список.
 	/// </summary>
 	/// <param name="contact">Контакт, который нужно добавить.</param>
-	void AddContact(Contact contact)
+	public void AddContact(Contact contact)
 	{
 		_contacts.Add(contact);
 	}
@@ -53,7 +53,7 @@ public class Project
 	/// <summary>
 	/// Сортирует контакты в списке по полному имени.
 	/// </summary>
-	void SortContactsByFullName()
+	public void SortContactsByFullName()
 	{
 		var sortedContacts = _contacts.OrderBy(x => x.FullName);
 		_contacts = sortedContacts.ToList();
@@ -63,7 +63,7 @@ public class Project
 	/// Находит в списке контактов именинников.
 	/// </summary>
 	/// <returns>Список именнинков.</returns>
-	List<Contact> FindBirthdayPeople()
+	public List<Contact> FindBirthdayPeople()
 	{
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
@@ -82,7 +82,7 @@ public class Project
 	/// </summary>
 	/// <param name="subString">Подстрока, по которой производится поиск.</param>
 	/// <returns>Список контактов, содержащих в себе подстроку.</returns>
-	List<Contact> FindContactsBySubstring(string subString)
+	public List<Contact> FindContactsBySubstring(string subString)
 	{
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
