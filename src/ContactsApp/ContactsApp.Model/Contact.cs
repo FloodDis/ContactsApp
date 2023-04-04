@@ -64,6 +64,7 @@ public class Contact
 				throw
 					new ArgumentException("Email не может быть больше 100 символов!");
 			}
+			_email = value;
 		}
 	}
 
