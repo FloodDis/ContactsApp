@@ -24,11 +24,24 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
+	/// Отсортировать список контактов по полному имени
+	/// </summary>
+	/// <param name="contactsList">Список контактов</param>
+	/// <returns>Отсортированный список контактов</returns>
+	private List<Contact> SortContactsByFullName(List<Contact> contactsList)
+	{
+		var sortedContacts = contactsList.OrderBy(x => x.FullName);
+		contactsList = sortedContacts.ToList();
+		return contactsList;
+	}
+
+	/// <summary>
 	/// Обновить отображаемые контакты в ListBox.
 	/// </summary>
 	private void UpdateListBox()
 	{
 		List<Contact> contacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		contacts = SortContactsByFullName(contacts);
 		_displayedContacts.Clear();
 		_displayedContacts.AddRange(contacts);
 		ContactsListBox.Items.Clear();
@@ -68,32 +81,7 @@ public partial class MainForm : Form
 
 	private void AddContactButton_Click(object sender, EventArgs e)
 	{
-		string[] fullNames = {
-			"Сеченов Владислав", "Иван Иванов", "Кирилл Сидоров",
-			"Алена Сергеева", "Евгений Дмитриев", "Роман Романов",
-			"Ирина Попова", "Павел Семёнов", "Семён Кузнецов"
-		};
-
-		string[] emails = {
-			"adh@mail.ru", "bjcksd@mail.ru", "cbhds@mail.ru",
-			"bhcge@mail.ru", "vbyuru@mail.ru", "b3h2@mail.ru",
-			"bviriroir@mail.ru", "vbudh34@mail.ru", "vbhf52@mail.ru"
-		};
-
-		var rand = new Random();
-		int fullNameIndex = rand.Next(fullNames.Length);
-		int emailIndex = rand.Next(emails.Length);
-
-		Contact newContact = new();
-		newContact.FullName = fullNames[fullNameIndex];
-		newContact.Email = emails[emailIndex];
-		newContact.VKId = rand.Next(100000).ToString();
-		newContact.PhoneNumber =
-			"+7 (" + rand.Next(100, 999).ToString() + ") "
-			+ rand.Next(100, 999).ToString() + "-"
-			+ rand.Next(10, 99).ToString() + "-"
-			+ rand.Next(10, 99).ToString();
-		newContact.DateOfBirth = DateTime.Today;
+		Contact newContact = ContactFactory.CreateContact();
 		_project.AddContact(newContact);
 		UpdateListBox();
 	}
