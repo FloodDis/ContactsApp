@@ -32,7 +32,7 @@ static public class ContactFactory
 	/// <summary>
 	/// Созадет контакт с рандомными данными.
 	/// </summary>
-	/// <returns></returns>
+	/// <returns>Контакт с рандомными данными.</returns>
 	static public Contact CreateContact()
 	{
 		Contact newContact = new Contact();
