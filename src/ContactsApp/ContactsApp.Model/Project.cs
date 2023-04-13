@@ -28,7 +28,6 @@ public class Project
 		set
 		{
 			_contacts[index] = value;
-			SortContactsByFullName();
 		}
 	}
 
@@ -48,15 +47,6 @@ public class Project
 	public void AddContact(Contact contact)
 	{
 		_contacts.Add(contact);
-	}
-
-	/// <summary>
-	/// Сортирует контакты в списке по полному имени.
-	/// </summary>
-	public void SortContactsByFullName()
-	{
-		var sortedContacts = _contacts.OrderBy(x => x.FullName);
-		_contacts = sortedContacts.ToList();
 	}
 
 	/// <summary>
