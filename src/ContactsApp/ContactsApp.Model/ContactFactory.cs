@@ -6,20 +6,33 @@ using System.Threading.Tasks;
 
 namespace ContactsApp.Model;
 
+/// <summary>
+/// Класс рандомной генереации контакта.
+/// </summary>
 static public class ContactFactory
 {
+	/// <summary>
+	/// Массив полных имен.
+	/// </summary>
 	private static string[] fullNames = {
 			"Сеченов Владислав", "Иван Иванов", "Кирилл Сидоров",
 			"Алена Сергеева", "Евгений Дмитриев", "Роман Романов",
 			"Ирина Попова", "Павел Семёнов", "Семён Кузнецов"
 		};
 
+	/// <summary>
+	/// Массив email.
+	/// </summary>
 	private static string[] emails = {
 			"adh@mail.ru", "bjcksd@mail.ru", "cbhds@mail.ru",
 			"bhcge@mail.ru", "vbyuru@mail.ru", "b3h2@mail.ru",
 			"bviriroir@mail.ru", "vbudh34@mail.ru", "vbhf52@mail.ru"
 		};
 
+	/// <summary>
+	/// Созадет контакт с рандомными данными.
+	/// </summary>
+	/// <returns></returns>
 	static public Contact CreateContact()
 	{
 		Contact newContact = new Contact();
