@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ContactsApp.Model;
 
@@ -64,6 +65,11 @@ public class Contact
 				throw
 					new ArgumentException("Email не может быть больше 100 символов!");
 			}
+			if (!Regex.IsMatch(value, "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}"))
+			{
+				throw
+					new ArgumentException("Email введен неверно!");
+			}
 			_email = value;
 		}
 	}
@@ -74,7 +80,10 @@ public class Contact
 	public string PhoneNumber
 	{
 		get { return _phoneNumber; }
-		set { _phoneNumber = value; }
+		set
+		{
+			_phoneNumber = value;
+		}
 	}
 
 	/// <summary>
@@ -83,9 +92,9 @@ public class Contact
 	public DateTime DateOfBirth
 	{
 		get { return _dateOfBirth; }
-		set 
+		set
 		{
-			if(value.Year < 1900)
+			if (value.Year < 1900)
 			{
 				throw new ArgumentException("Год рождения не может быть меньше 1900!");
 			}
@@ -93,7 +102,7 @@ public class Contact
 			{
 				throw new ArgumentException("Дата рождения не может быть позже сегодняшнего дня!");
 			}
-			_dateOfBirth = value; 
+			_dateOfBirth = value;
 		}
 	}
 
