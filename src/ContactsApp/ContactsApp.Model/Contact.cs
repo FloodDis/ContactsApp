@@ -1,4 +1,5 @@
 ﻿using System.Globalization;
+using System.Text.RegularExpressions;
 
 namespace ContactsApp.Model;
 
@@ -63,6 +64,11 @@ public class Contact
 			{
 				throw
 					new ArgumentException("Email не может быть больше 100 символов!");
+			}
+			if (!Regex.IsMatch(value, "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}"))
+			{
+				throw
+					new ArgumentException("Email введен неверно!");
 			}
 			_email = value;
 		}
