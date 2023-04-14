@@ -23,7 +23,25 @@ public partial class ContactForm : Form
 	/// </summary>
 	private string _surnameError;
 
+	/// <summary>
+	/// Текст ошибки при вводе email контакта.
+	/// </summary>
 	private string _emailError;
+
+	/// <summary>
+	/// Текст ошибки при вводе номера телефона контакта.
+	/// </summary>
+	private string _phoneNumberError;
+
+	/// <summary>
+	/// Текст ошибки при вводе даты рождения контакта.
+	/// </summary>
+	private string _dateOfBirthError;
+
+	/// <summary>
+	/// Текст ошибки при вводе VK ID контакта.
+	/// </summary>
+	private string _vkIdError;
 
 	public ContactForm()
 	{
@@ -55,9 +73,24 @@ public partial class ContactForm : Form
 			MessageBox.Show(_surnameError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
-		if(_emailError != "")
+		if (_emailError != "")
 		{
 			MessageBox.Show(_emailError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
+		}
+		if (_phoneNumberError != "")
+		{
+			MessageBox.Show(_phoneNumberError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
+		}
+		if (_dateOfBirthError != "")
+		{
+			MessageBox.Show(_dateOfBirthError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			return false;
+		}
+		if(_vkIdError != "")
+		{
+			MessageBox.Show(_vkIdError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 		return true;
@@ -117,10 +150,53 @@ public partial class ContactForm : Form
 			EmailTextBox.BackColor = Color.White;
 			_emailError = "";
 		}
-		catch(ArgumentException ex)
+		catch (ArgumentException ex)
 		{
 			_emailError = ex.Message;
 			EmailTextBox.BackColor = Color.LightPink;
+		}
+	}
+
+	private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
+	{
+		try
+		{
+			_contact.PhoneNumber = PhoneNumberTextBox.Text;
+			PhoneNumberTextBox.BackColor = Color.White;
+			_phoneNumberError = "";
+		}
+		catch (ArgumentException ex)
+		{
+			_phoneNumberError = ex.Message;
+			PhoneNumberTextBox.BackColor = Color.LightPink;
+		}
+	}
+
+	private void DateOfBirthDateTimePicker_ValueChanged(object sender, EventArgs e)
+	{
+		try
+		{
+			_contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
+			_dateOfBirthError = "";
+		}
+		catch (ArgumentException ex)
+		{
+			_dateOfBirthError = ex.Message;
+		}
+	}
+
+	private void VKTextBox_TextChanged(object sender, EventArgs e)
+	{
+		try
+		{
+			_contact.VKId = VKTextBox.Text;
+			VKTextBox.BackColor = Color.White;
+			_vkIdError = "";
+		}
+		catch (ArgumentException ex)
+		{
+			_vkIdError = ex.Message;
+			VKTextBox.BackColor = Color.LightPink;
 		}
 	}
 
@@ -131,6 +207,4 @@ public partial class ContactForm : Form
 			return;
 		}
 	}
-
-	
 }

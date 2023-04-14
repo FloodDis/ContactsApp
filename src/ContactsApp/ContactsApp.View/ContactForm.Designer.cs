@@ -91,6 +91,7 @@
 			this.DateOfBirthDateTimePicker.Name = "DateOfBirthDateTimePicker";
 			this.DateOfBirthDateTimePicker.Size = new System.Drawing.Size(175, 23);
 			this.DateOfBirthDateTimePicker.TabIndex = 13;
+			this.DateOfBirthDateTimePicker.ValueChanged += new System.EventHandler(this.DateOfBirthDateTimePicker_ValueChanged);
 			// 
 			// FooterPanel
 			// 
@@ -131,6 +132,7 @@
 			this.VKTextBox.Name = "VKTextBox";
 			this.VKTextBox.Size = new System.Drawing.Size(175, 23);
 			this.VKTextBox.TabIndex = 10;
+			this.VKTextBox.TextChanged += new System.EventHandler(this.VKTextBox_TextChanged);
 			// 
 			// VKLabel
 			// 
@@ -159,6 +161,7 @@
 			this.PhoneNumberTextBox.Name = "PhoneNumberTextBox";
 			this.PhoneNumberTextBox.Size = new System.Drawing.Size(175, 23);
 			this.PhoneNumberTextBox.TabIndex = 6;
+			this.PhoneNumberTextBox.TextChanged += new System.EventHandler(this.PhoneNumberTextBox_TextChanged);
 			this.PhoneNumberTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.PhoneNumberTextBox_KeyPress);
 			// 
 			// PhoneNumberLabel

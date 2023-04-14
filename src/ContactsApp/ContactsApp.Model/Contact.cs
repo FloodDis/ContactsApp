@@ -80,7 +80,10 @@ public class Contact
 	public string PhoneNumber
 	{
 		get { return _phoneNumber; }
-		set { _phoneNumber = value; }
+		set 
+		{ 
+			_phoneNumber = value; 
+		}
 	}
 
 	/// <summary>
