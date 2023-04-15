@@ -190,4 +190,10 @@ public partial class MainForm : Form
 		}
 		UpdateSelectedContact(ContactsListBox.SelectedIndex);
 	}
+
+	private void FindTextBox_TextChanged(object sender, EventArgs e)
+	{
+		_displayedContacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		UpdateListBox();
+	}
 }

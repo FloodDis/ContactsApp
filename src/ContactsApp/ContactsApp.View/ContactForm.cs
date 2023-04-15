@@ -80,29 +80,30 @@ public partial class ContactForm : Form
 	/// <returns>true - ошибок нет, false - есть ошибки при введении данных.</returns>
 	private bool CheckFormOnErrors()
 	{
+		string allErrors = "";
 		if (_surnameError != "")
 		{
-			MessageBox.Show(_surnameError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return false;
+			allErrors += _surnameError + "\n";
 		}
 		if (_emailError != "")
 		{
-			MessageBox.Show(_emailError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return false;
+			allErrors += _emailError + "\n";
 		}
 		if (_phoneNumberError != "")
 		{
-			MessageBox.Show(_phoneNumberError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return false;
+			allErrors += _phoneNumberError + "\n";
 		}
 		if (_dateOfBirthError != "")
-		{
-			MessageBox.Show(_dateOfBirthError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-			return false;
+		{ 
+			allErrors += _dateOfBirthError + "\n";
 		}
 		if(_vkIdError != "")
 		{
-			MessageBox.Show(_vkIdError, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			allErrors += _vkIdError + "\n";
+		}
+		if(allErrors != "")
+		{
+			MessageBox.Show(allErrors, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 		return true;
