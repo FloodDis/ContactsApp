@@ -32,12 +32,11 @@ public class Project
 	}
 
 	/// <summary>
-	/// Удаляет контакт из списка.
+	/// Конструктор по умолчанию.
 	/// </summary>
-	/// <param name="index">Индекс контакта.</param>
-	public void RemoveContact(int index)
+	public Project()
 	{
-		_contacts.RemoveAt(index);
+		_contacts = new List<Contact>();
 	}
 
 	/// <summary>
@@ -47,6 +46,15 @@ public class Project
 	public void AddContact(Contact contact)
 	{
 		_contacts.Add(contact);
+	}
+
+	/// <summary>
+	/// Удаляет контакт из списка.
+	/// </summary>
+	/// <param name="index">Индекс контакта.</param>
+	public void RemoveContact(int index)
+	{
+		_contacts.RemoveAt(index);
 	}
 
 	/// <summary>
@@ -71,14 +79,14 @@ public class Project
 	/// <summary>
 	/// Находит контакты по подстроке.
 	/// </summary>
-	/// <param name="subString">Подстрока, по которой производится поиск.</param>
+	/// <param name="substring">Подстрока, по которой производится поиск.</param>
 	/// <returns>Список контактов, содержащих в себе подстроку.</returns>
-	public List<Contact> FindContactsBySubstring(string subString)
+	public List<Contact> FindContactsBySubstring(string substring)
 	{
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
 		{
-			if (contact.FullName.Contains(subString))
+			if (contact.FullName.Contains(substring))
 			{
 				result.Add(contact);
 			}
@@ -90,13 +98,5 @@ public class Project
 		}
 
 		return result;
-	}
-
-	/// <summary>
-	/// Конструктор по умолчанию.
-	/// </summary>
-	public Project()
-	{
-		_contacts = new List<Contact>();
 	}
 }
