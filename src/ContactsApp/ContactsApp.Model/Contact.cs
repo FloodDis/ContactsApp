@@ -57,7 +57,10 @@ public class Contact
 	/// </summary>
 	public string Email
 	{
-		get { return _email; }
+		get 
+		{ 
+			return _email; 
+		}
 		set
 		{
 			if (value.Length > 100)
@@ -80,10 +83,7 @@ public class Contact
 	public string PhoneNumber
 	{
 		get { return _phoneNumber; }
-		set
-		{
-			_phoneNumber = value;
-		}
+		set { _phoneNumber = value; }
 	}
 
 	/// <summary>
@@ -91,7 +91,10 @@ public class Contact
 	/// </summary>
 	public DateTime DateOfBirth
 	{
-		get { return _dateOfBirth; }
+		get 
+		{ 
+			return _dateOfBirth; 
+		}
 		set
 		{
 			if (value.Year < 1900)
@@ -111,7 +114,10 @@ public class Contact
 	/// </summary>
 	public string VKId
 	{
-		get { return _vkId; }
+		get 
+		{ 
+			return _vkId; 
+		}
 		set
 		{
 			if (value.Length > 50)
