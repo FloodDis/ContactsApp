@@ -11,6 +11,14 @@ public class Project
 	private List<Contact> _contacts;
 
 	/// <summary>
+	/// Конструктор по умолчанию.
+	/// </summary>
+	public Project()
+	{
+		_contacts = new List<Contact>();
+	}
+
+	/// <summary>
 	/// Возвращает кол-во контактов в списке.
 	/// </summary>
 	public int ContactsCount
@@ -32,15 +40,6 @@ public class Project
 	}
 
 	/// <summary>
-	/// Удаляет контакт из списка.
-	/// </summary>
-	/// <param name="index">Индекс контакта.</param>
-	public void RemoveContact(int index)
-	{
-		_contacts.RemoveAt(index);
-	}
-
-	/// <summary>
 	/// Добавляет контакт в список.
 	/// </summary>
 	/// <param name="contact">Контакт, который нужно добавить.</param>
@@ -50,10 +49,19 @@ public class Project
 	}
 
 	/// <summary>
+	/// Удаляет контакт из списка.
+	/// </summary>
+	/// <param name="index">Индекс контакта.</param>
+	public void RemoveContact(int index)
+	{
+		_contacts.RemoveAt(index);
+	}
+
+	/// <summary>
 	/// Находит в списке контактов именинников.
 	/// </summary>
 	/// <returns>Список именнинков.</returns>
-	public List<Contact> FindBirthdayPeople()
+	public List<Contact> FindContactsByBirthDay()
 	{
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
@@ -71,14 +79,14 @@ public class Project
 	/// <summary>
 	/// Находит контакты по подстроке.
 	/// </summary>
-	/// <param name="subString">Подстрока, по которой производится поиск.</param>
+	/// <param name="substring">Подстрока, по которой производится поиск.</param>
 	/// <returns>Список контактов, содержащих в себе подстроку.</returns>
-	public List<Contact> FindContactsBySubstring(string subString)
+	public List<Contact> FindContactsBySubstring(string substring)
 	{
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
 		{
-			if (contact.FullName.Contains(subString))
+			if (contact.FullName.Contains(substring))
 			{
 				result.Add(contact);
 			}
@@ -89,14 +97,11 @@ public class Project
 			return _contacts;
 		}
 
-		return result;
-	}
+		if(result.Count == 0)
+		{
+			return _contacts;
+		}
 
-	/// <summary>
-	/// Конструктор по умолчанию.
-	/// </summary>
-	public Project()
-	{
-		_contacts = new List<Contact>();
+		return result;
 	}
 }
