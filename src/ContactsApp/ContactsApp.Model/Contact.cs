@@ -9,6 +9,18 @@ namespace ContactsApp.Model;
 public class Contact
 {
 	/// <summary>
+	/// Паттерн для валидации email.
+	/// Пример правильного email: dshkg@mail.ru
+	/// </summary>
+	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
+
+	/// <summary>
+	/// Паттерн для валидации номера телефона.
+	/// Пример правильного номера телефона: 8(926)123-45-67, +79261234567, 8-926-123-45-67
+	/// </summary>
+	private const string _phoneNumberRegex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
+
+	/// <summary>
 	/// Полное имя контакта.
 	/// </summary>
 	private string _fullName;
@@ -34,18 +46,6 @@ public class Contact
 	private string _vkId;
 
 	/// <summary>
-	/// Паттерн для валидации email.
-	/// Пример правильного email: dshkg@mail.ru
-	/// </summary>
-	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
-
-	/// <summary>
-	/// Паттерн для валидации номера телефона.
-	/// Пример правильного номера телефона: 8(926)123-45-67
-	/// </summary>
-	private const string _phoneNumberRegex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
-
-	/// <summary>
 	/// Возвращает или задает полное имя контакта.
 	/// </summary>
 	public string FullName
@@ -58,8 +58,8 @@ public class Contact
 		{
 			if (value.Length > 100)
 			{
-				throw
-					new ArgumentException("Полное имя не может быть больше 100 символов.");
+				var message = "Полное имя не может быть больше 100 символов.";
+				throw new ArgumentException(message);
 			}
 			TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 			string titleCase = textInfo.ToTitleCase(value);
@@ -79,14 +79,15 @@ public class Contact
 		set
 		{
 			if (value.Length > 100)
+				
 			{
-				throw
-					new ArgumentException("Email не может быть больше 100 символов.");
+				var message = "Полное имя не может быть больше 100 символов.";
+				throw new ArgumentException(message);
 			}
 			if (!Regex.IsMatch(value, _emailRegex))
 			{
-				throw
-					new ArgumentException("Email введен неверно.");
+				var message = "Email введен неверно.";
+				throw new ArgumentException(message);
 			}
 			_email = value;
 		}
@@ -105,8 +106,8 @@ public class Contact
 		{ 
 			if(!Regex.IsMatch(value, _phoneNumberRegex))
 			{
-				throw
-					new ArgumentException("Номер телефона введен неверно.");
+				var message = "Номер телефона введен неверно.";
+				throw new ArgumentException(message);
 			}
 			_phoneNumber = value; 
 		}
@@ -125,11 +126,13 @@ public class Contact
 		{
 			if (value.Year < 1900)
 			{
-				throw new ArgumentException("Год рождения не может быть меньше 1900.");
+				var message = "Год рождения не может быть меньше 1900.";
+				throw new ArgumentException(message);
 			}
-			if (value > DateTime.Today)
+			if (value.Year > DateTime.Now.Year)
 			{
-				throw new ArgumentException("Дата рождения не может быть позже сегодняшнего дня.");
+				var message = "Дата рождения не может быть позже сегодняшнего дня.";
+				throw new ArgumentException(message);
 			}
 			_dateOfBirth = value;
 		}
@@ -148,8 +151,8 @@ public class Contact
 		{
 			if (value.Length > 50)
 			{
-				throw
-					new ArgumentException("VKId не может быть больше 50 символов.");
+				var message = "VKId не может быть больше 50 символов.";
+				throw new ArgumentException(message);
 			}
 			_vkId = value;
 		}
