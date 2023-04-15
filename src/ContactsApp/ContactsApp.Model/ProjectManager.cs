@@ -1,6 +1,4 @@
-﻿using Newtonsoft.Json;
-
-namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model;
 
 /// <summary>
 /// Менеджер проекта.
