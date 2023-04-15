@@ -34,6 +34,11 @@ public class Contact
 	private string _vkId;
 
 	/// <summary>
+	/// Паттерн для валидации email.
+	/// </summary>
+	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
+
+	/// <summary>
 	/// Возвращает или задает полное имя контакта.
 	/// </summary>
 	public string FullName
@@ -68,7 +73,7 @@ public class Contact
 				throw
 					new ArgumentException("Email не может быть больше 100 символов!");
 			}
-			if (!Regex.IsMatch(value, "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}"))
+			if (!Regex.IsMatch(value, _emailRegex))
 			{
 				throw
 					new ArgumentException("Email введен неверно!");
