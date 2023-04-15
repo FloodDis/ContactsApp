@@ -1,7 +1,4 @@
-﻿using System.Globalization;
-using System.Text.RegularExpressions;
-
-namespace ContactsApp.Model;
+﻿namespace ContactsApp.Model;
 
 /// <summary>
 /// Описывает контакт.
