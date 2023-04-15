@@ -38,6 +38,8 @@ public class Contact
 	/// </summary>
 	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
 
+	private const string _phoneNumberRegex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
+
 	/// <summary>
 	/// Возвращает или задает полное имя контакта.
 	/// </summary>
@@ -62,9 +64,9 @@ public class Contact
 	/// </summary>
 	public string Email
 	{
-		get 
-		{ 
-			return _email; 
+		get
+		{
+			return _email;
 		}
 		set
 		{
@@ -87,8 +89,19 @@ public class Contact
 	/// </summary>
 	public string PhoneNumber
 	{
-		get { return _phoneNumber; }
-		set { _phoneNumber = value; }
+		get
+		{
+			return _phoneNumber;
+		}
+		set 
+		{ 
+			if(!Regex.IsMatch(value, _phoneNumberRegex))
+			{
+				throw
+					new ArgumentException("Номер телефона введен неверно!");
+			}
+			_phoneNumber = value; 
+		}
 	}
 
 	/// <summary>
@@ -96,9 +109,9 @@ public class Contact
 	/// </summary>
 	public DateTime DateOfBirth
 	{
-		get 
-		{ 
-			return _dateOfBirth; 
+		get
+		{
+			return _dateOfBirth;
 		}
 		set
 		{
@@ -119,9 +132,9 @@ public class Contact
 	/// </summary>
 	public string VKId
 	{
-		get 
-		{ 
-			return _vkId; 
+		get
+		{
+			return _vkId;
 		}
 		set
 		{
