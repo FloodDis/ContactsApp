@@ -69,7 +69,7 @@ public class Contact
 		}
 		set
 		{
-			ContactValidator.CheckLengthOfValue(value, "Полное имя", 100);
+			ValueValidator.CheckLengthOfString(value, 100, "Полное имя");
 			TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 			string titleCase = textInfo.ToTitleCase(value);
 			_fullName = titleCase;
@@ -87,12 +87,8 @@ public class Contact
 		}
 		set
 		{
-			ContactValidator.CheckLengthOfValue(value, "Email", 100);
-			if (!Regex.IsMatch(value, _emailRegex))
-			{
-				var message = "Email введен неверно.";
-				throw new ArgumentException(message);
-			}
+			ValueValidator.CheckLengthOfString(value, 100, "Email");
+			ValueValidator.CheckValueOnRegexPattern(value, _emailRegex, "Email");
 			_email = value;
 		}
 	}
@@ -108,11 +104,7 @@ public class Contact
 		}
 		set
 		{
-			if (!Regex.IsMatch(value, _phoneNumberRegex))
-			{
-				var message = "Номер телефона введен неверно.";
-				throw new ArgumentException(message);
-			}
+			ValueValidator.CheckValueOnRegexPattern(value, _phoneNumberRegex, "Номер телефона");
 			_phoneNumber = value;
 		}
 	}
@@ -128,16 +120,8 @@ public class Contact
 		}
 		set
 		{
-			if (value.Year < 1900)
-			{
-				var message = "Год рождения не может быть меньше 1900.";
-				throw new ArgumentException(message);
-			}
-			if (value.Year > DateTime.Now.Year)
-			{
-				var message = "Дата рождения не может быть позже сегодняшнего дня.";
-				throw new ArgumentException(message);
-			}
+			ValueValidator.CheckMinIntValue(value.Year, 1900, "Год рождения");
+			ValueValidator.CheckMaxIntValue(value.Year, DateTime.Now.Year, "Дата рождения");
 			_dateOfBirth = value;
 		}
 	}
@@ -153,7 +137,7 @@ public class Contact
 		}
 		set
 		{
-			ContactValidator.CheckLengthOfValue(value, "VKId", 50);
+			ValueValidator.CheckLengthOfString(value, 50, "VKId");
 			_vkId = value;
 		}
 	}
