@@ -33,6 +33,9 @@ public class Contact
 	/// </summary>
 	private string _vkId;
 
+	/// <summary>
+	/// Паттерн для валидации email.
+	/// </summary>
 	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
 
 	/// <summary>
