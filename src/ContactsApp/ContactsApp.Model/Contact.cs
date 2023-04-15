@@ -35,9 +35,14 @@ public class Contact
 
 	/// <summary>
 	/// Паттерн для валидации email.
+	/// Пример правильного email: dshkg@mail.ru
 	/// </summary>
 	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
 
+	/// <summary>
+	/// Паттерн для валидации номера телефона.
+	/// Пример правильного номера телефона: 8(926)123-45-67
+	/// </summary>
 	private const string _phoneNumberRegex = "^((8|\\+7)[\\- ]?)?(\\(?\\d{3}\\)?[\\- ]?)?[\\d\\- ]{7,10}$";
 
 	/// <summary>
