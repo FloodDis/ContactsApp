@@ -69,11 +69,7 @@ public class Contact
 		}
 		set
 		{
-			if (value.Length > 100)
-			{
-				var message = "Полное имя не может быть больше 100 символов.";
-				throw new ArgumentException(message);
-			}
+			ContactValidator.CheckLengthOfValue(value, "Полное имя", 100);
 			TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 			string titleCase = textInfo.ToTitleCase(value);
 			_fullName = titleCase;
@@ -91,12 +87,7 @@ public class Contact
 		}
 		set
 		{
-			if (value.Length > 100)
-
-			{
-				var message = "Полное имя не может быть больше 100 символов.";
-				throw new ArgumentException(message);
-			}
+			ContactValidator.CheckLengthOfValue(value, "Email", 100);
 			if (!Regex.IsMatch(value, _emailRegex))
 			{
 				var message = "Email введен неверно.";
@@ -162,11 +153,7 @@ public class Contact
 		}
 		set
 		{
-			if (value.Length > 50)
-			{
-				var message = "VKId не может быть больше 50 символов.";
-				throw new ArgumentException(message);
-			}
+			ContactValidator.CheckLengthOfValue(value, "VKId", 50);
 			_vkId = value;
 		}
 	}
