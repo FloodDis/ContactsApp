@@ -63,6 +63,18 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
+	/// Присвоить данные из элементов формы в объект _contact.
+	/// </summary>
+	private void UpdateContact()
+	{
+		_contact.FullName = FullNameTextBox.Text;
+		_contact.Email = EmailTextBox.Text;
+		_contact.PhoneNumber = PhoneNumberTextBox.Text;
+		_contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
+		_contact.VKId = VKTextBox.Text;
+	}
+
+	/// <summary>
 	/// Проверяет правильность введенных данных
 	/// </summary>
 	/// <returns>true - ошибок нет, false - есть ошибки при введении данных.</returns>
@@ -206,5 +218,6 @@ public partial class ContactForm : Form
 		{
 			return;
 		}
+		UpdateContact();
 	}
 }

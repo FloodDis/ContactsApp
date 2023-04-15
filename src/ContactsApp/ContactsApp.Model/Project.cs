@@ -58,7 +58,8 @@ public class Project
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
 		{
-			if (contact.DateOfBirth == DateTime.Today)
+			if (contact.DateOfBirth.Month == DateTime.Today.Month
+				&& contact.DateOfBirth.Day == DateTime.Today.Day)
 			{
 				result.Add(contact);
 			}
