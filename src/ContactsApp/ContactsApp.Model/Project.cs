@@ -11,6 +11,14 @@ public class Project
 	private List<Contact> _contacts;
 
 	/// <summary>
+	/// Конструктор по умолчанию.
+	/// </summary>
+	public Project()
+	{
+		_contacts = new List<Contact>();
+	}
+
+	/// <summary>
 	/// Возвращает кол-во контактов в списке.
 	/// </summary>
 	public int ContactsCount
@@ -29,14 +37,6 @@ public class Project
 		{
 			_contacts[index] = value;
 		}
-	}
-
-	/// <summary>
-	/// Конструктор по умолчанию.
-	/// </summary>
-	public Project()
-	{
-		_contacts = new List<Contact>();
 	}
 
 	/// <summary>
