@@ -56,7 +56,7 @@ public class Contact
 			if (value.Length > 100)
 			{
 				throw
-					new ArgumentException("Полное имя не может быть больше 100 символов!");
+					new ArgumentException("Полное имя не может быть больше 100 символов.");
 			}
 			TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 			string titleCase = textInfo.ToTitleCase(value);
@@ -78,12 +78,12 @@ public class Contact
 			if (value.Length > 100)
 			{
 				throw
-					new ArgumentException("Email не может быть больше 100 символов!");
+					new ArgumentException("Email не может быть больше 100 символов.");
 			}
 			if (!Regex.IsMatch(value, _emailRegex))
 			{
 				throw
-					new ArgumentException("Email введен неверно!");
+					new ArgumentException("Email введен неверно.");
 			}
 			_email = value;
 		}
@@ -103,7 +103,7 @@ public class Contact
 			if(!Regex.IsMatch(value, _phoneNumberRegex))
 			{
 				throw
-					new ArgumentException("Номер телефона введен неверно!");
+					new ArgumentException("Номер телефона введен неверно.");
 			}
 			_phoneNumber = value; 
 		}
@@ -122,11 +122,11 @@ public class Contact
 		{
 			if (value.Year < 1900)
 			{
-				throw new ArgumentException("Год рождения не может быть меньше 1900!");
+				throw new ArgumentException("Год рождения не может быть меньше 1900.");
 			}
 			if (value > DateTime.Today)
 			{
-				throw new ArgumentException("Дата рождения не может быть позже сегодняшнего дня!");
+				throw new ArgumentException("Дата рождения не может быть позже сегодняшнего дня.");
 			}
 			_dateOfBirth = value;
 		}
@@ -146,7 +146,7 @@ public class Contact
 			if (value.Length > 50)
 			{
 				throw
-					new ArgumentException("VKId не может быть больше 50 символов!");
+					new ArgumentException("VKId не может быть больше 50 символов.");
 			}
 			_vkId = value;
 		}
