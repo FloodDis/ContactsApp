@@ -34,6 +34,11 @@ public class Contact
 	private string _vkId;
 
 	/// <summary>
+	/// Паттерн для валидации email.
+	/// </summary>
+	private const string _emailRegex = "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}";
+
+	/// <summary>
 	/// Возвращает или задает полное имя контакта.
 	/// </summary>
 	public string FullName
@@ -57,7 +62,10 @@ public class Contact
 	/// </summary>
 	public string Email
 	{
-		get { return _email; }
+		get
+		{
+			return _email;
+		}
 		set
 		{
 			if (value.Length > 100)
@@ -65,7 +73,7 @@ public class Contact
 				throw
 					new ArgumentException("Email не может быть больше 100 символов!");
 			}
-			if (!Regex.IsMatch(value, "[.\\-_a-z0-9]+@([a-z0-9][\\-a-z0-9]+\\.)+[a-z]{2,6}"))
+			if (!Regex.IsMatch(value, _emailRegex))
 			{
 				throw
 					new ArgumentException("Email введен неверно!");
@@ -80,10 +88,7 @@ public class Contact
 	public string PhoneNumber
 	{
 		get { return _phoneNumber; }
-		set 
-		{ 
-			_phoneNumber = value; 
-		}
+		set { _phoneNumber = value; }
 	}
 
 	/// <summary>
@@ -91,10 +96,13 @@ public class Contact
 	/// </summary>
 	public DateTime DateOfBirth
 	{
-		get { return _dateOfBirth; }
-		set 
+		get
 		{
-			if(value.Year < 1900)
+			return _dateOfBirth;
+		}
+		set
+		{
+			if (value.Year < 1900)
 			{
 				throw new ArgumentException("Год рождения не может быть меньше 1900!");
 			}
@@ -102,7 +110,7 @@ public class Contact
 			{
 				throw new ArgumentException("Дата рождения не может быть позже сегодняшнего дня!");
 			}
-			_dateOfBirth = value; 
+			_dateOfBirth = value;
 		}
 	}
 
@@ -111,7 +119,10 @@ public class Contact
 	/// </summary>
 	public string VKId
 	{
-		get { return _vkId; }
+		get
+		{
+			return _vkId;
+		}
 		set
 		{
 			if (value.Length > 50)
