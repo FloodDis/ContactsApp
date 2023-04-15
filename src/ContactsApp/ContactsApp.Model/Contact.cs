@@ -50,7 +50,10 @@ public class Contact
 	/// </summary>
 	public string FullName
 	{
-		get { return _fullName; }
+		get 
+		{ 
+			return _fullName; 
+		}
 		set
 		{
 			if (value.Length > 100)

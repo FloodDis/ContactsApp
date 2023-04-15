@@ -53,7 +53,7 @@ public class Project
 	/// Находит в списке контактов именинников.
 	/// </summary>
 	/// <returns>Список именнинков.</returns>
-	public List<Contact> FindBirthdayPeople()
+	public List<Contact> FindContactsByBirthDay()
 	{
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
