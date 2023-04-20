@@ -86,7 +86,7 @@ public partial class MainForm : Form
 		Contact contactToEdit = _project[index];
 
 		var contactForm = new ContactForm();
-		contactForm.Contact = contactToEdit;
+		contactForm.Contact = (Contact)contactToEdit.Clone();
 		DialogResult result = contactForm.ShowDialog();
 		if (result == DialogResult.OK)
 		{
