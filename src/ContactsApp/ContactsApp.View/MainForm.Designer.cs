@@ -384,6 +384,7 @@
 			this.KeyPreview = true;
 			this.Name = "MainForm";
 			this.Text = "ContactsApp";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainForm_FormClosing);
 			this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.MainForm_KeyDown);
 			this.ContactsAppTableLayoutPanel.ResumeLayout(false);
 			this.ContactsManagementPanel.ResumeLayout(false);
