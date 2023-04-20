@@ -11,11 +11,6 @@ public partial class ContactForm : Form
 	private Contact _contact = new Contact();
 
 	/// <summary>
-	/// Фиктивный контакт для валидации данных.
-	/// </summary>
-	private Contact _fakeContact = new Contact();
-
-	/// <summary>
 	/// Текст ошибки при вводе полного имени контакта.
 	/// </summary>
 	private string _surnameError;
@@ -57,7 +52,6 @@ public partial class ContactForm : Form
 		{ 
 			_contact = value;
 			UpdateForm();
-			_fakeContact = _contact;
 		}
 	}
 
@@ -150,7 +144,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_fakeContact.FullName = FullNameTextBox.Text;
+			_contact.FullName = FullNameTextBox.Text;
 			FullNameTextBox.BackColor = Color.White;
 			_surnameError = "";
 		}
@@ -165,7 +159,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_fakeContact.Email = EmailTextBox.Text;
+			_contact.Email = EmailTextBox.Text;
 			EmailTextBox.BackColor = Color.White;
 			_emailError = "";
 		}
@@ -180,7 +174,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_fakeContact.PhoneNumber = PhoneNumberTextBox.Text;
+			_contact.PhoneNumber = PhoneNumberTextBox.Text;
 			PhoneNumberTextBox.BackColor = Color.White;
 			_phoneNumberError = "";
 		}
@@ -195,7 +189,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_fakeContact.DateOfBirth = DateOfBirthDateTimePicker.Value;
+			_contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
 			_dateOfBirthError = "";
 		}
 		catch (ArgumentException ex)
@@ -208,7 +202,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_fakeContact.VKId = VKTextBox.Text;
+			_contact.VKId = VKTextBox.Text;
 			VKTextBox.BackColor = Color.White;
 			_vkIdError = "";
 		}
@@ -234,7 +228,6 @@ public partial class ContactForm : Form
 
 	private void CancelButton_Click(object sender, EventArgs e)
 	{
-		_fakeContact = _contact;
 		DialogResult = DialogResult.Cancel;
 		Close();
 	}
