@@ -243,4 +243,15 @@ public partial class MainForm : Form
 		_displayedContacts = _project.FindContactsBySubstring(FindTextBox.Text);
 		UpdateListBox();
 	}
+
+	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+	{
+		DialogResult result = MessageBox.Show("Do you really want to exit?", 
+			"Close app?", MessageBoxButtons.OKCancel);
+
+		if( result != DialogResult.OK)
+		{
+			e.Cancel = true;
+		}
+	}
 }
