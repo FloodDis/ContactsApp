@@ -83,6 +83,10 @@ public class Project
 	/// <returns>Список контактов, содержащих в себе подстроку.</returns>
 	public List<Contact> FindContactsBySubstring(string substring)
 	{
+		if(substring == "")
+		{
+			return _contacts;
+		}
 		List<Contact> result = new();
 		foreach (Contact contact in _contacts)
 		{

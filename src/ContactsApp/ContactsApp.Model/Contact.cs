@@ -51,7 +51,7 @@ public class Contact
 	/// <summary>
 	/// Дата рождения контакта.
 	/// </summary>
-	private DateTime _dateOfBirth;
+	private DateTime _dateOfBirth = DateTime.Today;
 
 	/// <summary>
 	/// ID ВКонтакте контакта.

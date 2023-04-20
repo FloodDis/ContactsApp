@@ -1,4 +1,5 @@
 ﻿using ContactsApp.Model;
+using System.Security.Policy;
 
 namespace ContactsApp.View;
 
@@ -7,7 +8,12 @@ public partial class ContactForm : Form
 	/// <summary>
 	/// Контакт.
 	/// </summary>
-	private Contact _contact;
+	private Contact _contact = new Contact();
+
+	/// <summary>
+	/// Фиктивный контакт для валидации данных.
+	/// </summary>
+	private Contact _fakeContact = new Contact();
 
 	/// <summary>
 	/// Текст ошибки при вводе полного имени контакта.
@@ -37,8 +43,22 @@ public partial class ContactForm : Form
 	public ContactForm()
 	{
 		InitializeComponent();
-		_contact = ContactFactory.CreateContact();
+
 		UpdateForm();
+	}
+
+	/// <summary>
+	/// Возвращает или задает контакт.
+	/// </summary>
+	public Contact Contact
+	{
+		get { return _contact; }
+		set 
+		{ 
+			_contact = value;
+			UpdateForm();
+			_fakeContact = _contact;
+		}
 	}
 
 	/// <summary>
@@ -85,14 +105,14 @@ public partial class ContactForm : Form
 			allErrors += _phoneNumberError + "\n";
 		}
 		if (_dateOfBirthError != "")
-		{ 
+		{
 			allErrors += _dateOfBirthError + "\n";
 		}
-		if(_vkIdError != "")
+		if (_vkIdError != "")
 		{
 			allErrors += _vkIdError + "\n";
 		}
-		if(allErrors != "")
+		if (allErrors != "")
 		{
 			MessageBox.Show(allErrors, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
@@ -108,11 +128,6 @@ public partial class ContactForm : Form
 	private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
 	{
 		AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
-	}
-
-	private void CancelButton_Click(object sender, EventArgs e)
-	{
-		Close();
 	}
 
 	private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
@@ -135,7 +150,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_contact.FullName = FullNameTextBox.Text;
+			_fakeContact.FullName = FullNameTextBox.Text;
 			FullNameTextBox.BackColor = Color.White;
 			_surnameError = "";
 		}
@@ -150,7 +165,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_contact.Email = EmailTextBox.Text;
+			_fakeContact.Email = EmailTextBox.Text;
 			EmailTextBox.BackColor = Color.White;
 			_emailError = "";
 		}
@@ -165,7 +180,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_contact.PhoneNumber = PhoneNumberTextBox.Text;
+			_fakeContact.PhoneNumber = PhoneNumberTextBox.Text;
 			PhoneNumberTextBox.BackColor = Color.White;
 			_phoneNumberError = "";
 		}
@@ -180,7 +195,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
+			_fakeContact.DateOfBirth = DateOfBirthDateTimePicker.Value;
 			_dateOfBirthError = "";
 		}
 		catch (ArgumentException ex)
@@ -193,7 +208,7 @@ public partial class ContactForm : Form
 	{
 		try
 		{
-			_contact.VKId = VKTextBox.Text;
+			_fakeContact.VKId = VKTextBox.Text;
 			VKTextBox.BackColor = Color.White;
 			_vkIdError = "";
 		}
@@ -210,6 +225,17 @@ public partial class ContactForm : Form
 		{
 			return;
 		}
+
 		UpdateContact();
+
+		DialogResult = DialogResult.OK;
+		Close();
+	}
+
+	private void CancelButton_Click(object sender, EventArgs e)
+	{
+		_fakeContact = _contact;
+		DialogResult = DialogResult.Cancel;
+		Close();
 	}
 }

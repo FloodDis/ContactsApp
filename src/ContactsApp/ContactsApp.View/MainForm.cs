@@ -64,6 +64,10 @@ public partial class MainForm : Form
 		VKTextBox.Text = contactToShow.VKId;
 	}
 
+	/// <summary>
+	/// Очищает содержимое компонентов, отображающих
+	/// данные выбранного контакта.
+	/// </summary>
 	private void ClearSelectedContact()
 	{
 		FullNameTextBox.Text = "";
@@ -71,6 +75,26 @@ public partial class MainForm : Form
 		PhoneNumberTextBox.Text = "";
 		DateOfBirthTextBox.Text = "";
 		VKTextBox.Text = "";
+	}
+
+	/// <summary>
+	/// Редактирует контакт.
+	/// </summary>
+	/// <param name="index">Индекс редактируемого контакта.</param>
+	private void EditContact(int index)
+	{
+		Contact contactToEdit = _project[index];
+
+		var contactForm = new ContactForm();
+		contactForm.Contact = contactToEdit;
+		DialogResult result = contactForm.ShowDialog();
+		if (result == DialogResult.OK)
+		{
+			Contact updatedContact = contactForm.Contact;
+			_project[index] = updatedContact;
+
+			UpdateListBox();
+		}
 	}
 
 	private void AddContactButton_MouseEnter(object sender, EventArgs e)
@@ -81,9 +105,32 @@ public partial class MainForm : Form
 
 	private void AddContactButton_Click(object sender, EventArgs e)
 	{
-		Contact newContact = ContactFactory.CreateContact();
-		_project.AddContact(newContact);
-		UpdateListBox();
+		Contact newContact = new Contact();
+		var contactForm = new ContactForm();
+		contactForm.Contact = newContact;
+		DialogResult result = contactForm.ShowDialog();
+
+		if(result == DialogResult.OK)
+		{
+			_project.AddContact(newContact);
+
+			UpdateListBox();
+		}
+	}
+
+	private void EditContactButton_Click(object sender, EventArgs e)
+	{
+		try
+		{
+			int selectedIndex = ContactsListBox.SelectedIndex;
+			EditContact(selectedIndex);
+		}
+		catch
+		{
+			MessageBox.Show("Выберите контакт для редактирования",
+				"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+		
 	}
 
 	private void AddContactButton_MouseLeave(object sender, EventArgs e)
