@@ -3,7 +3,7 @@
 /// <summary>
 /// Описывает контакт.
 /// </summary>
-public class Contact
+public class Contact : ICloneable
 {
 	/// <summary>
 	/// Паттерн для валидации email.
@@ -57,6 +57,11 @@ public class Contact
 	/// ID ВКонтакте контакта.
 	/// </summary>
 	private string _vkId;
+
+	public object Clone()
+	{
+		return MemberwiseClone();
+	}
 
 	/// <summary>
 	/// Возвращает или задает полное имя контакта.
