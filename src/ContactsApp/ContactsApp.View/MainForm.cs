@@ -190,4 +190,15 @@ public partial class MainForm : Form
 		}
 		UpdateSelectedContact(ContactsListBox.SelectedIndex);
 	}
+
+	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+	{
+		DialogResult result = MessageBox.Show("Do you really want to exit?", 
+			"Close app?", MessageBoxButtons.OKCancel);
+
+		if( result != DialogResult.OK)
+		{
+			e.Cancel = true;
+		}
+	}
 }
