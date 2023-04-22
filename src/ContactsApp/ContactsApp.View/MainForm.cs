@@ -142,7 +142,7 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Открывеь форму для редактирования старого контакта.
+	/// Открывет форму для редактирования старого контакта.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -291,7 +291,7 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Удаляет выбианный контакт.
+	/// Удаляет выбранный контакт.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
