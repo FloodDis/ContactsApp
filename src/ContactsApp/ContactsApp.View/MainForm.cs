@@ -97,12 +97,35 @@ public partial class MainForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Изменяет цвет кнопки добавления контакта
+	/// при наведении на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void AddContactButton_MouseEnter(object sender, EventArgs e)
 	{
 		AddContactButton.Image = Properties.Resources.add_contact_32x32;
 		AddContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
 	}
 
+	/// <summary>
+	/// Изменяет цвет кнопки добавления контакта, когда
+	/// курсор убирают от иконки.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void AddContactButton_MouseLeave(object sender, EventArgs e)
+	{
+		AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
+		AddContactButton.BackColor = Color.White;
+	}
+
+	/// <summary>
+	/// Открывет форму для добавления нового контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void AddContactButton_Click(object sender, EventArgs e)
 	{
 		Contact newContact = new Contact();
@@ -118,6 +141,11 @@ public partial class MainForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Открывеь форму для редактирования старого контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void EditContactButton_Click(object sender, EventArgs e)
 	{
 		try
@@ -133,61 +161,112 @@ public partial class MainForm : Form
 		
 	}
 
-	private void AddContactButton_MouseLeave(object sender, EventArgs e)
-	{
-		AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
-		AddContactButton.BackColor = Color.White;
-	}
-
+	/// <summary>
+	/// Меняет цвет кнопки удаления контакта при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
 	{
 		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
 		RemoveContactButton.BackColor = Color.FromArgb(250, 245, 245);
 	}
 
+	/// <summary>
+	/// Меняет цвет кнопки удаления контакта при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
 	{
 		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
 		RemoveContactButton.BackColor = Color.White;
 	}
 
+	/// <summary>
+	/// Меняет цвет кнопки редактирования контакта при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void EditContactButton_MouseEnter(object sender, EventArgs e)
 	{
 		EditContactButton.Image = Properties.Resources.edit_contact_32x32;
 		EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
 	}
 
+	/// <summary>
+	/// Меняет цвет кнопки редактирования контакта при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void EditContactButton_MouseLeave(object sender, EventArgs e)
 	{
 		EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
 		EditContactButton.BackColor = Color.White;
 	}
 
+	/// <summary>
+	/// Блокирует ввод символов в текстовое поле для отображения полного
+	/// имени контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void FullNameTextBox_KeyPress(object sender, KeyPressEventArgs e)
 	{
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Блокирует ввод символов в текстовое поле для отображения email контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void EmailTextBox_KeyPress(object sender, KeyPressEventArgs e)
 	{
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Блокирует ввод символов в текстовое поле для отображения 
+	/// номера телефона контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
 	{
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Блокирует ввод символов в текстовое поле для отображения 
+	/// дня рождения контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void DateOfBirthTextBox_KeyPress(object sender, KeyPressEventArgs e)
 	{
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Блокирует ввод символов в текстовое поле для отображения 
+	/// VK ID контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void VKTextBox_KeyPress(object sender, KeyPressEventArgs e)
 	{
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Вызывает форму со справочной информацей о программе
+	/// при нажатии F2.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void MainForm_KeyDown(object sender, KeyEventArgs e)
 	{
 		if (e.KeyCode == Keys.F1)
@@ -197,6 +276,11 @@ public partial class MainForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Закрывает уведомление об именинниках.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void CloseNotificationButton_Click(object sender, EventArgs e)
 	{
 		CloseNotificationButton.Visible = false;
@@ -206,6 +290,11 @@ public partial class MainForm : Form
 		NotficationBirthdayLabel.Visible = false;
 	}
 
+	/// <summary>
+	/// Удаляет выбианный контакт.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void RemoveContactButton_Click(object sender, EventArgs e)
 	{
 		if (ContactsListBox.SelectedIndex == -1)
@@ -228,6 +317,12 @@ public partial class MainForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Меняет отображаемый контакт при выборе
+	/// другого контакта в списке.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
 	{
 		if (ContactsListBox.SelectedIndex == -1)
@@ -238,12 +333,24 @@ public partial class MainForm : Form
 		UpdateSelectedContact(ContactsListBox.SelectedIndex);
 	}
 
+	/// <summary>
+	/// Обновляет список контактов в соотвествии
+	/// с введнной подстрокой.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void FindTextBox_TextChanged(object sender, EventArgs e)
 	{
 		_displayedContacts = _project.FindContactsBySubstring(FindTextBox.Text);
 		UpdateListBox();
 	}
 
+	/// <summary>
+	/// Проверяет хочет точно ли пользователь хочет
+	/// выйти из приложения.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
 		DialogResult result = MessageBox.Show("Do you really want to exit?", 
