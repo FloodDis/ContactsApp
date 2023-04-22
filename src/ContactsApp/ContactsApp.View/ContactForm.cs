@@ -35,6 +35,9 @@ public partial class ContactForm : Form
 	/// </summary>
 	private string _vkIdError;
 
+	/// <summary>
+	/// Конструктор формы.
+	/// </summary>
 	public ContactForm()
 	{
 		InitializeComponent();
@@ -80,7 +83,7 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Проверяет правильность введенных данных
+	/// Проверяет правильность введенных данных.
 	/// </summary>
 	/// <returns>true - ошибок нет, false - есть ошибки при введении данных.</returns>
 	private bool CheckFormOnErrors()
@@ -114,16 +117,33 @@ public partial class ContactForm : Form
 		return true;
 	}
 
+	/// <summary>
+	/// Изменяет цвет иконки добавления фотографии при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
 	{
 		AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
 	}
 
+	/// <summary>
+	/// Изменяет цвет иконки добавления фотографии, когда курсор
+	/// не наведен на нее.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
 	{
 		AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
 	}
 
+	/// <summary>
+	/// Проверяет вводимые символы в поле для номера телефона.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void PhoneNumberTextBox_KeyPress(object sender, KeyPressEventArgs e)
 	{
 		if ((e.KeyChar >= '0')
@@ -140,6 +160,12 @@ public partial class ContactForm : Form
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Присваивает полное имя, введенное в текстовое поле,
+	/// соотвестующей переменной.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void FullNameTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -155,6 +181,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает email, введенный в текстовое поле,
+	/// соотвестующей переменной.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void EmailTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -170,6 +202,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает номер телефона, введенный в текстовое поле,
+	/// соотвестующей переменной.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -185,6 +223,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает дату рождения, выбранную в DateTimePicker,
+	/// соотвестующей переменной.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void DateOfBirthDateTimePicker_ValueChanged(object sender, EventArgs e)
 	{
 		try
@@ -198,6 +242,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает VK ID, введенный в текстовое поле,
+	/// соотвестующей переменной.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void VKTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -213,6 +263,11 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Добавляет новый контакт/обновляет старый.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void OKButton_Click(object sender, EventArgs e)
 	{
 		if (!CheckFormOnErrors())
@@ -226,6 +281,11 @@ public partial class ContactForm : Form
 		Close();
 	}
 
+	/// <summary>
+	/// Отменяет добавление/редактирование контакта.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void CancelButton_Click(object sender, EventArgs e)
 	{
 		DialogResult = DialogResult.Cancel;
