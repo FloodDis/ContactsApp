@@ -92,16 +92,6 @@ public class Project
 			}
 		}
 
-		if (result.Count == 0)
-		{
-			return _contacts;
-		}
-
-		if(result.Count == 0)
-		{
-			return _contacts;
-		}
-
 		return result;
 	}
 }
