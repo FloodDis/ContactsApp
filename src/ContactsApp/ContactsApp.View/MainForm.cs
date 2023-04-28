@@ -16,6 +16,9 @@ public partial class MainForm : Form
 	/// </summary>
 	private List<Contact> _displayedContacts;
 
+	/// <summary>
+	/// Конструктор формы.
+	/// </summary>
 	public MainForm()
 	{
 		InitializeComponent();
