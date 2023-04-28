@@ -157,6 +157,12 @@ public partial class ContactForm : Form
 		e.Handled = true;
 	}
 
+	/// <summary>
+	/// Присваивает введеное в поле полное им в соответствующее
+	/// поле класса и валидирует его.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void FullNameTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -172,6 +178,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает введенный в поле email в соответствующее
+	/// поле класса и валидирует его.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void EmailTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -187,6 +199,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает введнный в поле номер телефона в соответствующее
+	/// поле класса и валидирует его.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void PhoneNumberTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -202,6 +220,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает введную в поле дату рождения в соответствующее
+	/// поле класса и валидирует ее.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void DateOfBirthDateTimePicker_ValueChanged(object sender, EventArgs e)
 	{
 		try
@@ -215,6 +239,12 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Присваивает введный в поле VK ID в соответствующее
+	/// поле класса и валидирует его.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void VKTextBox_TextChanged(object sender, EventArgs e)
 	{
 		try
@@ -230,6 +260,11 @@ public partial class ContactForm : Form
 		}
 	}
 
+	/// <summary>
+	/// Создать/отредактировать контакт.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
 	private void OKButton_Click(object sender, EventArgs e)
 	{
 		if (!CheckFormOnErrors())
