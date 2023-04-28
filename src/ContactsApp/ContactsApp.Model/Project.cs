@@ -97,11 +97,6 @@ public class Project
 			return _contacts;
 		}
 
-		if(result.Count == 0)
-		{
-			return _contacts;
-		}
-
 		return result;
 	}
 }
