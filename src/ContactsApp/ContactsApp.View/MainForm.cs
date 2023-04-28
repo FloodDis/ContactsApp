@@ -24,6 +24,7 @@ public partial class MainForm : Form
 		InitializeComponent();
 		_project = new Project();
 		_displayedContacts = new List<Contact>();
+		UpdateBirthdays();
 	}
 
 	/// <summary>
@@ -101,6 +102,50 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
+	/// Обновляет уведомление о днях рождениях контактов.
+	/// </summary>
+	private void UpdateBirthdays()
+	{
+		List<Contact> result = _project.FindContactsByBirthDay();
+
+		string newLabelText = "";
+		if(result.Count > 0)
+		{
+			if(result.Count > 3)
+			{
+				for (int i = 0; i < 3; i++)
+				{
+					if (i == 2)
+					{
+						newLabelText += result[i].FullName.Split(" ")[0];
+					}
+					else
+					{
+						newLabelText += result[i].FullName.Split(" ")[0] + ", ";
+					}
+				}
+				newLabelText += " и др.";
+			}
+			else
+			{
+				for (int i = 0; i < result.Count; i++)
+				{
+					if (i == result.Count - 1)
+					{
+						newLabelText += result[i].FullName.Split(" ")[0];
+					}
+					else
+					{
+						newLabelText += result[i].FullName.Split(" ")[0] + ", ";
+					}
+				}
+			}
+		}
+
+		NotificationSurnamesLabel.Text = newLabelText;
+	}
+
+	/// <summary>
 	/// Изменяет цвет кнопки добавления контакта
 	/// при наведении на нее курсора.
 	/// </summary>
@@ -136,11 +181,12 @@ public partial class MainForm : Form
 		contactForm.Contact = newContact;
 		DialogResult result = contactForm.ShowDialog();
 
-		if(result == DialogResult.OK)
+		if (result == DialogResult.OK)
 		{
 			_project.AddContact(newContact);
 
 			UpdateListBox();
+			UpdateBirthdays();
 		}
 	}
 
@@ -155,13 +201,14 @@ public partial class MainForm : Form
 		{
 			int selectedIndex = ContactsListBox.SelectedIndex;
 			EditContact(selectedIndex);
+			UpdateBirthdays();
 		}
 		catch
 		{
 			MessageBox.Show("Выберите контакт для редактирования",
 				"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
-		
+
 	}
 
 	/// <summary>
@@ -185,6 +232,34 @@ public partial class MainForm : Form
 	{
 		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
 		RemoveContactButton.BackColor = Color.White;
+	}
+
+	/// <summary>
+	/// Удаляет выбранный контакт.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void RemoveContactButton_Click(object sender, EventArgs e)
+	{
+		if (ContactsListBox.SelectedIndex == -1)
+		{
+			ClearSelectedContact();
+			return;
+		}
+
+		DialogResult result = MessageBox.Show("Do you really want to remove...?",
+			"Remove element",
+			MessageBoxButtons.OKCancel);
+		if (result == DialogResult.OK)
+		{
+			_project.RemoveContact(ContactsListBox.SelectedIndex);
+			UpdateListBox();
+			UpdateBirthdays();
+			if (ContactsListBox.Items.Count == 0)
+			{
+				ClearSelectedContact();
+			}
+		}
 	}
 
 	/// <summary>
@@ -294,33 +369,6 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Удаляет выбранный контакт.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void RemoveContactButton_Click(object sender, EventArgs e)
-	{
-		if (ContactsListBox.SelectedIndex == -1)
-		{
-			ClearSelectedContact();
-			return;
-		}
-
-		DialogResult result = MessageBox.Show("Do you really want to remove...?",
-			"Remove element",
-			MessageBoxButtons.OKCancel);
-		if (result == DialogResult.OK)
-		{
-			_project.RemoveContact(ContactsListBox.SelectedIndex);
-			UpdateListBox();
-			if (ContactsListBox.Items.Count == 0)
-			{
-				ClearSelectedContact();
-			}
-		}
-	}
-
-	/// <summary>
 	/// Меняет отображаемый контакт при выборе
 	/// другого контакта в списке.
 	/// </summary>
@@ -356,10 +404,10 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
-		DialogResult result = MessageBox.Show("Do you really want to exit?", 
+		DialogResult result = MessageBox.Show("Do you really want to exit?",
 			"Close app?", MessageBoxButtons.OKCancel);
 
-		if( result != DialogResult.OK)
+		if (result != DialogResult.OK)
 		{
 			e.Cancel = true;
 		}
