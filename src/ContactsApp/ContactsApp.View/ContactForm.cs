@@ -118,8 +118,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Изменяет цвет иконки добавления фотографии при наведении
-	/// на нее курсора.
+	/// Изменяет цвет картинки для добавления фотографии
+	/// при наведении на нее курсора.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -129,8 +129,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Изменяет цвет иконки добавления фотографии, когда курсор
-	/// не наведен на нее.
+	/// Изменяет цвет картинки для добавления фотографии
+	/// при отведении от нее курсора.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -140,7 +140,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Проверяет вводимые символы в поле для номера телефона.
+	/// Запрещает вводить в поле для номера телефона все
+	/// символы, кроме цифр и '-', '(', ')', ' ', '+'.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -161,8 +162,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Присваивает полное имя, введенное в текстовое поле,
-	/// соотвестующей переменной.
+	/// Присваивает введеное в поле полное им в соответствующее
+	/// поле класса и валидирует его.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -182,8 +183,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Присваивает email, введенный в текстовое поле,
-	/// соотвестующей переменной.
+	/// Присваивает введенный в поле email в соответствующее
+	/// поле класса и валидирует его.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -203,8 +204,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Присваивает номер телефона, введенный в текстовое поле,
-	/// соотвестующей переменной.
+	/// Присваивает введнный в поле номер телефона в соответствующее
+	/// поле класса и валидирует его.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -224,8 +225,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Присваивает дату рождения, выбранную в DateTimePicker,
-	/// соотвестующей переменной.
+	/// Присваивает введную в поле дату рождения в соответствующее
+	/// поле класса и валидирует ее.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -243,8 +244,8 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Присваивает VK ID, введенный в текстовое поле,
-	/// соотвестующей переменной.
+	/// Присваивает введный в поле VK ID в соответствующее
+	/// поле класса и валидирует его.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
@@ -264,7 +265,7 @@ public partial class ContactForm : Form
 	}
 
 	/// <summary>
-	/// Добавляет новый контакт/обновляет старый.
+	/// Создать/отредактировать контакт.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
