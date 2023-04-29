@@ -86,7 +86,7 @@ public partial class MainForm : Form
 	/// <param name="index">Индекс редактируемого контакта.</param>
 	private void EditContact(int index)
 	{
-		Contact contactToEdit = _project[index];
+		Contact contactToEdit = _displayedContacts[index];
 
 		var contactForm = new ContactForm();
 		contactForm.Contact = (Contact)contactToEdit.Clone();
