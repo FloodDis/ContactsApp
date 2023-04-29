@@ -10,29 +10,26 @@ public partial class ContactForm : Form
 	private Contact _contact;
 
 	/// <summary>
-	/// Текст ошибки при вводе полного имени контакта.
+	/// Словарь ошибок.
 	/// </summary>
-	private string _surnameError;
+	private Dictionary<string, string> _errorDictionary = new Dictionary<string, string>()
+	{
+		{nameof(Contact.FullName), "" },
+		{nameof(Contact.Email), "" },
+		{nameof(Contact.PhoneNumber), "" },
+		{nameof(Contact.DateOfBirth), "" },
+		{nameof(Contact.VKId), "" }
+	};
 
 	/// <summary>
-	/// Текст ошибки при вводе email контакта.
+	/// Цвет элементов формы при отсутствии ошибок.
 	/// </summary>
-	private string _emailError;
+	private Color _defaultColor = Color.White;
 
 	/// <summary>
-	/// Текст ошибки при вводе номера телефона контакта.
+	/// Цвет элементов формы при наличии ошибок.
 	/// </summary>
-	private string _phoneNumberError;
-
-	/// <summary>
-	/// Текст ошибки при вводе даты рождения контакта.
-	/// </summary>
-	private string _dateOfBirthError;
-
-	/// <summary>
-	/// Текст ошибки при вводе VK ID контакта.
-	/// </summary>
-	private string _vkIdError;
+	private Color _errorColor = Color.LightPink;
 
 	/// <summary>
 	/// Конструктор формы.
@@ -75,54 +72,21 @@ public partial class ContactForm : Form
 	private bool CheckFormOnErrors()
 	{
 		string allErrors = "";
-		if (_surnameError != "")
+
+		foreach (var error in _errorDictionary)
 		{
-			allErrors += _surnameError + "\n";
+			if (error.Value != "")
+			{
+				allErrors += error.Value + "\n";
+			}
 		}
-		if (_emailError != "")
-		{
-			allErrors += _emailError + "\n";
-		}
-		if (_phoneNumberError != "")
-		{
-			allErrors += _phoneNumberError + "\n";
-		}
-		if (_dateOfBirthError != "")
-		{ 
-			allErrors += _dateOfBirthError + "\n";
-		}
-		if(_vkIdError != "")
-		{
-			allErrors += _vkIdError + "\n";
-		}
+
 		if(allErrors != "")
 		{
 			MessageBox.Show(allErrors, "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 			return false;
 		}
 		return true;
-	}
-
-	/// <summary>
-	/// Изменяет цвет картинки для добавления фотографии
-	/// при наведении на нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
-	{
-		AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
-	}
-
-	/// <summary>
-	/// Изменяет цвет картинки для добавления фотографии
-	/// при отведении от нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
-	{
-		AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
 	}
 
 	/// <summary>
@@ -168,13 +132,13 @@ public partial class ContactForm : Form
 		try
 		{
 			_contact.FullName = FullNameTextBox.Text;
-			FullNameTextBox.BackColor = Color.White;
-			_surnameError = "";
+			FullNameTextBox.BackColor = _defaultColor;
+			_errorDictionary[nameof(Contact.FullName)] = "";
 		}
 		catch (ArgumentException ex)
 		{
-			_surnameError = ex.Message;
-			FullNameTextBox.BackColor = Color.LightPink;
+			_errorDictionary[nameof(Contact.FullName)] = ex.Message;
+			FullNameTextBox.BackColor = _errorColor;
 		}
 	}
 
@@ -189,13 +153,13 @@ public partial class ContactForm : Form
 		try
 		{
 			_contact.Email = EmailTextBox.Text;
-			EmailTextBox.BackColor = Color.White;
-			_emailError = "";
+			EmailTextBox.BackColor = _defaultColor;
+			_errorDictionary[nameof(Contact.Email)] = "";
 		}
 		catch (ArgumentException ex)
 		{
-			_emailError = ex.Message;
-			EmailTextBox.BackColor = Color.LightPink;
+			_errorDictionary[nameof(Contact.Email)] = ex.Message;
+			EmailTextBox.BackColor = _errorColor;
 		}
 	}
 
@@ -210,13 +174,13 @@ public partial class ContactForm : Form
 		try
 		{
 			_contact.PhoneNumber = PhoneNumberTextBox.Text;
-			PhoneNumberTextBox.BackColor = Color.White;
-			_phoneNumberError = "";
+			PhoneNumberTextBox.BackColor = _defaultColor;
+			_errorDictionary[nameof(Contact.PhoneNumber)] = "";
 		}
 		catch (ArgumentException ex)
 		{
-			_phoneNumberError = ex.Message;
-			PhoneNumberTextBox.BackColor = Color.LightPink;
+			_errorDictionary[nameof(Contact.PhoneNumber)] = ex.Message;
+			PhoneNumberTextBox.BackColor = _errorColor;
 		}
 	}
 
@@ -231,11 +195,11 @@ public partial class ContactForm : Form
 		try
 		{
 			_contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
-			_dateOfBirthError = "";
+			_errorDictionary[nameof(Contact.DateOfBirth)] = "";
 		}
 		catch (ArgumentException ex)
 		{
-			_dateOfBirthError = ex.Message;
+			_errorDictionary[nameof(Contact.DateOfBirth)] = ex.Message;
 		}
 	}
 
@@ -250,13 +214,13 @@ public partial class ContactForm : Form
 		try
 		{
 			_contact.VKId = VKTextBox.Text;
-			VKTextBox.BackColor = Color.White;
-			_vkIdError = "";
+			VKTextBox.BackColor = _defaultColor;
+			_errorDictionary[nameof(Contact.VKId)] = "";
 		}
 		catch (ArgumentException ex)
 		{
-			_vkIdError = ex.Message;
-			VKTextBox.BackColor = Color.LightPink;
+			_errorDictionary[nameof(Contact.VKId)] = ex.Message;
+			VKTextBox.BackColor = _errorColor;
 		}
 	}
 
@@ -272,5 +236,27 @@ public partial class ContactForm : Form
 			return;
 		}
 		UpdateContact();
+	}
+
+	/// <summary>
+	/// Изменяет цвет картинки для добавления фотографии
+	/// при наведении на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void AddPhotoButton_MouseEnter(object sender, EventArgs e)
+	{
+		AddPhotoButton.Image = Properties.Resources.add_photo_32x32;
+	}
+
+	/// <summary>
+	/// Изменяет цвет картинки для добавления фотографии
+	/// при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void AddPhotoButton_MouseLeave(object sender, EventArgs e)
+	{
+		AddPhotoButton.Image = Properties.Resources.add_photo_32x32_gray;
 	}
 }
