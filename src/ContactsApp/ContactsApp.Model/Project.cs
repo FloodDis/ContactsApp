@@ -26,6 +26,11 @@ public class Project
 		get { return _contacts.Count; }
 	}
 
+	public List<Contact> Contacts
+	{
+		get { return _contacts; }
+	}
+
 	/// <summary>
 	/// Возвращает или задает контакт по индексу.
 	/// </summary>
@@ -85,16 +90,17 @@ public class Project
 	/// <summary>
 	/// Находит контакты по подстроке.
 	/// </summary>
+	/// <param name="contactsList">Список, в котором осуществляется поиск.</param>
 	/// <param name="substring">Подстрока, по которой производится поиск.</param>
 	/// <returns>Список контактов, содержащих в себе подстроку.</returns>
-	public List<Contact> FindContactsBySubstring(string substring)
+	public List<Contact> FindContactsBySubstring(List<Contact> contactsList, string substring)
 	{
-		if(substring == "")
+		if (substring == "")
 		{
-			return _contacts;
+			return contactsList;
 		}
 		List<Contact> result = new();
-		foreach (Contact contact in _contacts)
+		foreach (Contact contact in contactsList)
 		{
 			if (contact.FullName.Contains(substring))
 			{

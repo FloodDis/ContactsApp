@@ -29,7 +29,7 @@ public partial class MainForm : Form
 	/// </summary>
 	private void UpdateListBox()
 	{
-		List<Contact> contacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		List<Contact> contacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
 		contacts = _project.SortContactsByFullName(contacts);
 		_displayedContacts.Clear();
 		_displayedContacts.AddRange(contacts);
@@ -75,12 +75,12 @@ public partial class MainForm : Form
 		Contact contactToEdit = _displayedContacts[index];
 
 		var contactForm = new ContactForm();
-		contactForm.Contact = contactToEdit;
+		contactForm.Contact = (Contact)contactToEdit.Clone();
 		DialogResult result = contactForm.ShowDialog();
 		if (result == DialogResult.OK)
 		{
 			Contact updatedContact = contactForm.Contact;
-			int projectIndex = _project.IndexOf(updatedContact);
+			int projectIndex = _project.IndexOf(contactToEdit);
 			_project[projectIndex] = updatedContact;
 
 			UpdateListBox();
@@ -99,7 +99,7 @@ public partial class MainForm : Form
 		contactForm.Contact = newContact;
 		DialogResult result = contactForm.ShowDialog();
 
-		if(result == DialogResult.OK)
+		if (result == DialogResult.OK)
 		{
 			_project.AddContact(newContact);
 
@@ -124,7 +124,7 @@ public partial class MainForm : Form
 			MessageBox.Show("Выберите контакт для редактирования",
 				"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
 		}
-		
+
 	}
 
 	/// <summary>
@@ -232,11 +232,7 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void CloseNotificationButton_Click(object sender, EventArgs e)
 	{
-		CloseNotificationButton.Visible = false;
 		NotificationPanel.Visible = false;
-		NotificationPictureBox.Visible = false;
-		NotificationSurnamesLabel.Visible = false;
-		NotficationBirthdayLabel.Visible = false;
 	}
 
 	/// <summary>
@@ -263,7 +259,7 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void FindTextBox_TextChanged(object sender, EventArgs e)
 	{
-		_displayedContacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		_displayedContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
 		UpdateListBox();
 	}
 
@@ -275,10 +271,10 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
 	{
-		DialogResult result = MessageBox.Show("Do you really want to exit?", 
+		DialogResult result = MessageBox.Show("Do you really want to exit?",
 			"Close app?", MessageBoxButtons.OKCancel);
 
-		if( result != DialogResult.OK)
+		if (result != DialogResult.OK)
 		{
 			e.Cancel = true;
 		}
