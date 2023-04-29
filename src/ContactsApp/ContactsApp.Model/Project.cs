@@ -26,6 +26,11 @@ public class Project
 		get { return _contacts.Count; }
 	}
 
+	public List<Contact> Contacts
+	{
+		get { return _contacts; }
+	}
+
 	/// <summary>
 	/// Возвращает или задает контакт по индексу.
 	/// </summary>
@@ -52,9 +57,15 @@ public class Project
 	/// Удаляет контакт из списка.
 	/// </summary>
 	/// <param name="index">Индекс контакта.</param>
-	public void RemoveContact(int index)
+	public void RemoveContact(Contact contact)
 	{
-		_contacts.RemoveAt(index);
+		_contacts.Remove(contact);
+	}
+
+	public int IndexOf(Contact contact)
+	{
+		int index = _contacts.IndexOf(contact);
+		return index;
 	}
 
 	/// <summary>
@@ -79,16 +90,17 @@ public class Project
 	/// <summary>
 	/// Находит контакты по подстроке.
 	/// </summary>
+	/// <param name="contactsList">Список, в котором осуществляется поиск.</param>
 	/// <param name="substring">Подстрока, по которой производится поиск.</param>
 	/// <returns>Список контактов, содержащих в себе подстроку.</returns>
-	public List<Contact> FindContactsBySubstring(string substring)
+	public List<Contact> FindContactsBySubstring(List<Contact> contactsList, string substring)
 	{
-		if(substring == "")
+		if (substring == "")
 		{
-			return _contacts;
+			return contactsList;
 		}
 		List<Contact> result = new();
-		foreach (Contact contact in _contacts)
+		foreach (Contact contact in contactsList)
 		{
 			if (contact.FullName.Contains(substring))
 			{
@@ -97,5 +109,17 @@ public class Project
 		}
 
 		return result;
+	}
+
+	/// <summary>
+	/// Отсортировать список контактов по полному имени
+	/// </summary>
+	/// <param name="contactsList">Список контактов</param>
+	/// <returns>Отсортированный список контактов</returns>
+	public List<Contact> SortContactsByFullName(List<Contact> contactsList)
+	{
+		var sortedContacts = contactsList.OrderBy(x => x.FullName);
+		contactsList = sortedContacts.ToList();
+		return contactsList;
 	}
 }

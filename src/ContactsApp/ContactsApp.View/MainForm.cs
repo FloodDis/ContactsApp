@@ -9,12 +9,12 @@ public partial class MainForm : Form
 	/// <summary>
 	/// Список всех контактов.
 	/// </summary>
-	private Project _project;
+	private Project _project = new Project();
 
 	/// <summary>
 	/// Список отображаемых контактов.
 	/// </summary>
-	private List<Contact> _displayedContacts;
+	private List<Contact> _displayedContacts = new List<Contact>();
 
 	/// <summary>
 	/// Конструктор формы.
@@ -22,21 +22,7 @@ public partial class MainForm : Form
 	public MainForm()
 	{
 		InitializeComponent();
-		_project = new Project();
-		_displayedContacts = new List<Contact>();
 		UpdateBirthdays();
-	}
-
-	/// <summary>
-	/// Отсортировать список контактов по полному имени
-	/// </summary>
-	/// <param name="contactsList">Список контактов</param>
-	/// <returns>Отсортированный список контактов</returns>
-	private List<Contact> SortContactsByFullName(List<Contact> contactsList)
-	{
-		var sortedContacts = contactsList.OrderBy(x => x.FullName);
-		contactsList = sortedContacts.ToList();
-		return contactsList;
 	}
 
 	/// <summary>
@@ -44,8 +30,8 @@ public partial class MainForm : Form
 	/// </summary>
 	private void UpdateListBox()
 	{
-		List<Contact> contacts = _project.FindContactsBySubstring(FindTextBox.Text);
-		contacts = SortContactsByFullName(contacts);
+		List<Contact> contacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+		contacts = _project.SortContactsByFullName(contacts);
 		_displayedContacts.Clear();
 		_displayedContacts.AddRange(contacts);
 		ContactsListBox.Items.Clear();
@@ -87,7 +73,7 @@ public partial class MainForm : Form
 	/// <param name="index">Индекс редактируемого контакта.</param>
 	private void EditContact(int index)
 	{
-		Contact contactToEdit = _project[index];
+		Contact contactToEdit = _displayedContacts[index];
 
 		var contactForm = new ContactForm();
 		contactForm.Contact = (Contact)contactToEdit.Clone();
@@ -95,9 +81,11 @@ public partial class MainForm : Form
 		if (result == DialogResult.OK)
 		{
 			Contact updatedContact = contactForm.Contact;
-			_project[index] = updatedContact;
+			int projectIndex = _project.IndexOf(contactToEdit);
+			_project[projectIndex] = updatedContact;
 
 			UpdateListBox();
+			UpdateSelectedContact(index);
 		}
 	}
 
@@ -146,30 +134,6 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Изменяет цвет кнопки добавления контакта
-	/// при наведении на нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void AddContactButton_MouseEnter(object sender, EventArgs e)
-	{
-		AddContactButton.Image = Properties.Resources.add_contact_32x32;
-		AddContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
-	}
-
-	/// <summary>
-	/// Изменяет цвет кнопки добавления контакта, когда
-	/// курсор убирают от иконки.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void AddContactButton_MouseLeave(object sender, EventArgs e)
-	{
-		AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
-		AddContactButton.BackColor = Color.White;
-	}
-
-	/// <summary>
 	/// Открывет форму для добавления нового контакта.
 	/// </summary>
 	/// <param name="sender"></param>
@@ -212,77 +176,33 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Меняет цвет кнопки удаления контакта при наведении
-	/// на нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
-	{
-		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
-		RemoveContactButton.BackColor = Color.FromArgb(250, 245, 245);
-	}
-
-	/// <summary>
-	/// Меняет цвет кнопки удаления контакта при отведении от нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
-	{
-		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
-		RemoveContactButton.BackColor = Color.White;
-	}
-
-	/// <summary>
 	/// Удаляет выбранный контакт.
 	/// </summary>
 	/// <param name="sender"></param>
 	/// <param name="e"></param>
 	private void RemoveContactButton_Click(object sender, EventArgs e)
 	{
+		Contact contactToDelete = _displayedContacts[ContactsListBox.SelectedIndex];
+
 		if (ContactsListBox.SelectedIndex == -1)
 		{
 			ClearSelectedContact();
 			return;
 		}
 
-		DialogResult result = MessageBox.Show("Do you really want to remove...?",
+		DialogResult result = MessageBox.Show($"Do you really want to remove {contactToDelete.FullName}?",
 			"Remove element",
 			MessageBoxButtons.OKCancel);
 		if (result == DialogResult.OK)
 		{
-			_project.RemoveContact(ContactsListBox.SelectedIndex);
+			_project.RemoveContact(contactToDelete);
 			UpdateListBox();
-			UpdateBirthdays();
 			if (ContactsListBox.Items.Count == 0)
 			{
 				ClearSelectedContact();
 			}
+			UpdateBirthdays();
 		}
-	}
-
-	/// <summary>
-	/// Меняет цвет кнопки редактирования контакта при наведении
-	/// на нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void EditContactButton_MouseEnter(object sender, EventArgs e)
-	{
-		EditContactButton.Image = Properties.Resources.edit_contact_32x32;
-		EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
-	}
-
-	/// <summary>
-	/// Меняет цвет кнопки редактирования контакта при отведении от нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void EditContactButton_MouseLeave(object sender, EventArgs e)
-	{
-		EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
-		EditContactButton.BackColor = Color.White;
 	}
 
 	/// <summary>
@@ -361,11 +281,7 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void CloseNotificationButton_Click(object sender, EventArgs e)
 	{
-		CloseNotificationButton.Visible = false;
 		NotificationPanel.Visible = false;
-		NotificationPictureBox.Visible = false;
-		NotificationSurnamesLabel.Visible = false;
-		NotficationBirthdayLabel.Visible = false;
 	}
 
 	/// <summary>
@@ -392,7 +308,7 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void FindTextBox_TextChanged(object sender, EventArgs e)
 	{
-		_displayedContacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		_displayedContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
 		UpdateListBox();
 	}
 
@@ -411,5 +327,75 @@ public partial class MainForm : Form
 		{
 			e.Cancel = true;
 		}
+	}
+
+	/// <summary>
+	/// Изменяет цвет кнопки добавления контакта
+	/// при наведении на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void AddContactButton_MouseEnter(object sender, EventArgs e)
+	{
+		AddContactButton.Image = Properties.Resources.add_contact_32x32;
+		AddContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+	}
+
+	/// <summary>
+	/// Изменяет цвет кнопки добавления контакта, когда
+	/// курсор убирают от иконки.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void AddContactButton_MouseLeave(object sender, EventArgs e)
+	{
+		AddContactButton.Image = Properties.Resources.add_contact_32x32_gray;
+		AddContactButton.BackColor = Color.White;
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки удаления контакта при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
+	{
+		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
+		RemoveContactButton.BackColor = Color.FromArgb(250, 245, 245);
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки удаления контакта при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
+	{
+		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
+		RemoveContactButton.BackColor = Color.White;
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки редактирования контакта при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void EditContactButton_MouseEnter(object sender, EventArgs e)
+	{
+		EditContactButton.Image = Properties.Resources.edit_contact_32x32;
+		EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки редактирования контакта при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void EditContactButton_MouseLeave(object sender, EventArgs e)
+	{
+		EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
+		EditContactButton.BackColor = Color.White;
 	}
 }
