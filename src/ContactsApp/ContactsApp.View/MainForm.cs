@@ -144,52 +144,6 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
-	/// Меняет цвет кнопки удаления контакта при наведении
-	/// на нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
-	{
-		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
-		RemoveContactButton.BackColor = Color.FromArgb(250, 245, 245);
-	}
-
-	/// <summary>
-	/// Меняет цвет кнопки удаления контакта при отведении от нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
-	{
-		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
-		RemoveContactButton.BackColor = Color.White;
-	}
-
-	/// <summary>
-	/// Меняет цвет кнопки редактирования контакта при наведении
-	/// на нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void EditContactButton_MouseEnter(object sender, EventArgs e)
-	{
-		EditContactButton.Image = Properties.Resources.edit_contact_32x32;
-		EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
-	}
-
-	/// <summary>
-	/// Меняет цвет кнопки редактирования контакта при отведении от нее курсора.
-	/// </summary>
-	/// <param name="sender"></param>
-	/// <param name="e"></param>
-	private void EditContactButton_MouseLeave(object sender, EventArgs e)
-	{
-		EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
-		EditContactButton.BackColor = Color.White;
-	}
-
-	/// <summary>
 	/// Блокирует ввод символов в текстовое поле для отображения полного
 	/// имени контакта.
 	/// </summary>
@@ -303,5 +257,51 @@ public partial class MainForm : Form
 		{
 			e.Cancel = true;
 		}
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки удаления контакта при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
+	{
+		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32;
+		RemoveContactButton.BackColor = Color.FromArgb(250, 245, 245);
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки удаления контакта при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
+	{
+		RemoveContactButton.Image = Properties.Resources.remove_contact_32x32_gray;
+		RemoveContactButton.BackColor = Color.White;
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки редактирования контакта при наведении
+	/// на нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void EditContactButton_MouseEnter(object sender, EventArgs e)
+	{
+		EditContactButton.Image = Properties.Resources.edit_contact_32x32;
+		EditContactButton.BackColor = ColorTranslator.FromHtml("#F5F5FF");
+	}
+
+	/// <summary>
+	/// Меняет цвет кнопки редактирования контакта при отведении от нее курсора.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void EditContactButton_MouseLeave(object sender, EventArgs e)
+	{
+		EditContactButton.Image = Properties.Resources.edit_contact_32x32_gray;
+		EditContactButton.BackColor = Color.White;
 	}
 }
