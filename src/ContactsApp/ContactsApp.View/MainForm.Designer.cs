@@ -170,6 +170,7 @@
 			this.FindTextBox.RightToLeft = System.Windows.Forms.RightToLeft.No;
 			this.FindTextBox.Size = new System.Drawing.Size(199, 23);
 			this.FindTextBox.TabIndex = 1;
+			this.FindTextBox.TextChanged += new System.EventHandler(this.FindTextBox_TextChanged);
 			// 
 			// ContactsListBox
 			// 

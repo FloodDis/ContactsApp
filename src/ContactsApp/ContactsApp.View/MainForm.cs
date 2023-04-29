@@ -243,6 +243,18 @@ public partial class MainForm : Form
 	}
 
 	/// <summary>
+	/// ќбновл€ет список контактов в соотвествии
+	/// с введнной подстрокой.
+	/// </summary>
+	/// <param name="sender"></param>
+	/// <param name="e"></param>
+	private void FindTextBox_TextChanged(object sender, EventArgs e)
+	{
+		_displayedContacts = _project.FindContactsBySubstring(FindTextBox.Text);
+		UpdateListBox();
+	}
+
+	/// <summary>
 	/// ѕровер€ет хочет точно ли пользователь хочет
 	/// выйти из приложени€.
 	/// </summary>
