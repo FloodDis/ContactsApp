@@ -85,7 +85,7 @@ public partial class MainForm : Form
 			_project[projectIndex] = updatedContact;
 
 			UpdateListBox();
-			UpdateSelectedContact(index);
+			ClearSelectedContact();
 		}
 	}
 
