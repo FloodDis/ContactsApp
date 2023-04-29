@@ -52,9 +52,15 @@ public class Project
 	/// Удаляет контакт из списка.
 	/// </summary>
 	/// <param name="index">Индекс контакта.</param>
-	public void RemoveContact(int index)
+	public void RemoveContact(Contact contact)
 	{
-		_contacts.RemoveAt(index);
+		_contacts.Remove(contact);
+	}
+
+	public int IndexOf(Contact contact)
+	{
+		int index = _contacts.IndexOf(contact);
+		return index;
 	}
 
 	/// <summary>
@@ -97,5 +103,17 @@ public class Project
 		}
 
 		return result;
+	}
+
+	/// <summary>
+	/// Отсортировать список контактов по полному имени
+	/// </summary>
+	/// <param name="contactsList">Список контактов</param>
+	/// <returns>Отсортированный список контактов</returns>
+	public List<Contact> SortContactsByFullName(List<Contact> contactsList)
+	{
+		var sortedContacts = contactsList.OrderBy(x => x.FullName);
+		contactsList = sortedContacts.ToList();
+		return contactsList;
 	}
 }
