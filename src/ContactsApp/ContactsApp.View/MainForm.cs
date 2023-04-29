@@ -96,41 +96,22 @@ public partial class MainForm : Form
 	{
 		List<Contact> result = _project.FindContactsByBirthDay();
 
-		string newLabelText = "";
-		if(result.Count > 0)
+		if(result.Count == 0)
 		{
-			if(result.Count > 3)
-			{
-				for (int i = 0; i < 3; i++)
-				{
-					if (i == 2)
-					{
-						newLabelText += result[i].FullName.Split(" ")[0];
-					}
-					else
-					{
-						newLabelText += result[i].FullName.Split(" ")[0] + ", ";
-					}
-				}
-				newLabelText += " и др.";
-			}
-			else
-			{
-				for (int i = 0; i < result.Count; i++)
-				{
-					if (i == result.Count - 1)
-					{
-						newLabelText += result[i].FullName.Split(" ")[0];
-					}
-					else
-					{
-						newLabelText += result[i].FullName.Split(" ")[0] + ", ";
-					}
-				}
-			}
+			NotificationSurnamesLabel.Text = "";
+			return;
 		}
 
-		NotificationSurnamesLabel.Text = newLabelText;
+		var surnames = result.Select(contact => contact.FullName.Split(" ")[0]).ToList();
+		var count = Math.Min(result.Count, 3);
+		var fullMessage = string.Join(", ", surnames.Take(count));
+
+		if(result.Count > 3)
+		{
+			fullMessage += " и др.";
+		}
+
+		NotificationSurnamesLabel.Text = fullMessage;
 	}
 
 	/// <summary>
