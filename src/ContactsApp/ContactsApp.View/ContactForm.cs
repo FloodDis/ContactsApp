@@ -3,6 +3,9 @@ using System.Security.Policy;
 
 namespace ContactsApp.View;
 
+/// <summary>
+/// Форма для редактирования/добавления контакта.
+/// </summary>
 public partial class ContactForm : Form
 {
 	/// <summary>
@@ -50,8 +53,15 @@ public partial class ContactForm : Form
 		get { return _contact; }
 		set 
 		{ 
-			_contact = value;
-			UpdateForm();
+			if(value == null)
+			{
+				ClearForm();
+			}
+			else
+			{
+				_contact = value;
+				UpdateForm();
+			}
 		}
 	}
 
@@ -77,6 +87,18 @@ public partial class ContactForm : Form
 		_contact.PhoneNumber = PhoneNumberTextBox.Text;
 		_contact.DateOfBirth = DateOfBirthDateTimePicker.Value;
 		_contact.VKId = VKTextBox.Text;
+	}
+
+	/// <summary>
+	/// Очищает поля элементов на форме.
+	/// </summary>
+	private void ClearForm()
+	{
+		FullNameTextBox.Text = "";
+		EmailTextBox.Text = "";
+		PhoneNumberTextBox.Text = "";
+		DateOfBirthDateTimePicker.Value = DateTime.Today;
+		VKTextBox.Text = "";
 	}
 
 	/// <summary>
