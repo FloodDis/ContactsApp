@@ -9,7 +9,7 @@ public partial class MainForm : Form
 	/// <summary>
 	/// Список всех контактов.
 	/// </summary>
-	private Project _project/* = new Project()*/;
+	private Project _project;
 
 	/// <summary>
 	/// Список отображаемых контактов.
