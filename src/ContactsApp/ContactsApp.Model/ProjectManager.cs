@@ -8,7 +8,7 @@ static public class ProjectManager
 	/// <summary>
 	/// Путь по умолчанию для сохранения и загрузки.
 	/// </summary>
-	private static string _defaultPath = Environment.ExpandEnvironmentVariables(@".\Notes.txt");
+	private static string _defaultPath = Environment.ExpandEnvironmentVariables(@".\Contacts.txt");
 
 	/// <summary>
 	/// Заданный пользователем путь для сохранения и загрузки.
