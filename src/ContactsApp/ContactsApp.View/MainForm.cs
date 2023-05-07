@@ -9,7 +9,7 @@ public partial class MainForm : Form
 	/// <summary>
 	/// Список всех контактов.
 	/// </summary>
-	private Project _project = new Project();
+	private Project _project/* = new Project()*/;
 
 	/// <summary>
 	/// Список отображаемых контактов.
@@ -22,7 +22,18 @@ public partial class MainForm : Form
 	public MainForm()
 	{
 		InitializeComponent();
-		UpdateBirthdays();
+		
+		try
+		{
+			_project = ProjectManager.Load();
+			UpdateListBox();
+			UpdateBirthdays();
+		}
+		catch
+		{
+			MessageBox.Show("Can't load list of saved notes from path", "Error",
+				MessageBoxButtons.OK, MessageBoxIcon.Warning);
+		}
 	}
 
 	/// <summary>
@@ -84,6 +95,7 @@ public partial class MainForm : Form
 			int projectIndex = _project.IndexOf(contactToEdit);
 			_project[projectIndex] = updatedContact;
 
+			ProjectManager.Save(_project);
 			UpdateListBox();
 			ClearSelectedContact();
 		}
@@ -130,6 +142,7 @@ public partial class MainForm : Form
 		{
 			_project.AddContact(newContact);
 
+			ProjectManager.Save(_project);
 			UpdateListBox();
 			UpdateBirthdays();
 		}
@@ -182,6 +195,7 @@ public partial class MainForm : Form
 			{
 				ClearSelectedContact();
 			}
+			ProjectManager.Save(_project);
 			UpdateBirthdays();
 		}
 	}
@@ -306,6 +320,7 @@ public partial class MainForm : Form
 
 		if (result != DialogResult.OK)
 		{
+			ProjectManager.Save(_project);
 			e.Cancel = true;
 		}
 	}
