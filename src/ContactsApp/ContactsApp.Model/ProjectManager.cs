@@ -25,9 +25,9 @@ static public class ProjectManager
 	}
 
 	/// <summary>
-	/// Сохранить список заметок.
+	/// Сохранить список контактов.
 	/// </summary>
-	/// <param name="project">Список заметок для сохранения.</param>
+	/// <param name="project">Список контактов для сохранения.</param>
 	public static void Save(Project project)
 	{
 		JsonSerializer serializer = new();
@@ -44,9 +44,9 @@ static public class ProjectManager
 	}
 
 	/// <summary>
-	/// Загрузить список заметок.
+	/// Загрузить список контактов.
 	/// </summary>
-	/// <returns>Загруженный список заметок.</returns>
+	/// <returns>Загруженный список контактов.</returns>
 	public static Project Load()
 	{
 		Project project = new();
