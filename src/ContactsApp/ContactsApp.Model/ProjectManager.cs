@@ -74,10 +74,6 @@ static public class ProjectManager
 			project = serializer.Deserialize<Project>(reader);
 		}
 
-		if (project == null)
-		{
-			return new Project();
-		}
-		return project;
+		return project ?? new Project();
 	}
 }
