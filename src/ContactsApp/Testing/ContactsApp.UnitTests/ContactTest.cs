@@ -56,7 +56,7 @@ public class ContactTest
 		//Testing
 		var expected = "hjasfd@mail.ru";
 		contact.Email = expected;
-		var actual = contact.FullName;
+		var actual = contact.Email;
 
 		//Assert
 		Assert.AreEqual(expected, actual);
@@ -72,7 +72,7 @@ public class ContactTest
 		var wrongEmail = "hjdfdsbhdvhsbhjacsbhjacsbasbhabcshbascbhjacsbhjasbchabschbascbacsbhjacsbhjascbhjaschaschvjacsvhjavscavschvacsvhjacshjavschvacsvhascvhjasvchacsjvacvajcvjhacjhacsvhjv@mail.ru"
 
 		//Assert
-		Assert.Throws<ArgumentException>(() => contact.FullName = wrongEmail,
+		Assert.Throws<ArgumentException>(() => contact.Email = wrongEmail,
 			"Должно возникать исключение, если email длиннее 100 символов");
 	}
 
@@ -86,7 +86,95 @@ public class ContactTest
 		var wrongEmail = "jskdfhk";
 
 		//Assert
-		Assert.Throws<ArgumentException>(() => contact.FullName = wrongEmail,
+		Assert.Throws<ArgumentException>(() => contact.Email = wrongEmail,
 			"Должно возникать исключение, если email не соотвествует Regex паттерну");
+	}
+
+	[Test(Description = "Позитивный тест геттера и сеттера PhoneNumber")]
+	public void Test_PhoneNumber_CorrectValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var firstExpected = "+7 (345) 234-45-65";
+		contact.PhoneNumber = firstExpected;
+		var firstActual = contact.PhoneNumber;
+
+		var secondExpected = "+79261234567";
+		contact.PhoneNumber = secondExpected;
+		var secondActual = contact.PhoneNumber;
+
+		var thirdExpected = "89261234567";
+		contact.PhoneNumber = thirdExpected;
+		var thirdActual = contact.PhoneNumber;
+
+		//Assert
+		Assert.AreEqual(firstExpected, firstActual);
+		Assert.AreEqual(secondExpected, secondActual);
+		Assert.AreEqual(thirdExpected, thirdActual);
+	}
+
+	[Test(Description = "Негативный тест геттера и сеттера PhoneNumber")]
+	public void Test_PhoneNumber_FalseValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var firstWrongPhoneNumber = "98643";
+		var secondWrongPhoneNumber = "75823";
+		var thirdWrongPhoneNumber = "+74321";
+
+		//Assert
+		Assert.Throws<ArgumentException>(() => contact.PhoneNumber = firstWrongPhoneNumber,
+			"Должно возникать исключение, если номер телефона не соотвествует Regex паттерну");
+		Assert.Throws<ArgumentException>(() => contact.PhoneNumber = secondWrongPhoneNumber,
+			"Должно возникать исключение, если номер телефона не соотвествует Regex паттерну");
+		Assert.Throws<ArgumentException>(() => contact.PhoneNumber = thirdWrongPhoneNumber,
+			"Должно возникать исключение, если номер телефона не соотвествует Regex паттерну");
+	}
+
+	[Test(Description = "Позитивный тест геттера и сеттера DateOfBirth")]
+	public void Test_DateOfBirth_CorrectValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var expected = DateTime.Now;
+		contact.DateOfBirth = expected;
+		var actual = contact.DateOfBirth;
+
+		//Assert
+		Assert.AreEqual(expected, actual);
+	}
+
+	[Test(Description = "Негативный тест геттера и сеттера DateOfBirth (год рождения меньше 1900)")]
+	public void Test_DateOfBirth_FalseValue_MinValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var wrongDateOfBirth = new DateTime(1899,10,12);
+
+		//Assert
+		Assert.Throws<ArgumentException>(() => contact.DateOfBirth = wrongDateOfBirth,
+			"Должно возникать исключение, если номер телефона не соотвествует Regex паттерну");
+	}
+
+	[Test(Description = "Негативный тест геттера и сеттера DateOfBirth (год рождения больше текущего года)")]
+	public void Test_DateOfBirth_FalseValue_MaxValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var wrongDateOfBirth = new DateTime(DateTime.Today.Year, 1, 3);
+
+		//Assert
+		Assert.Throws<ArgumentException>(() => contact.DateOfBirth = wrongDateOfBirth,
+			"Должно возникать исключение, если номер телефона не соотвествует Regex паттерну");
 	}
 }
