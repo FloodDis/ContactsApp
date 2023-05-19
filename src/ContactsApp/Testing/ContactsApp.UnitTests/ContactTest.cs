@@ -46,4 +46,47 @@ public class ContactTest
 		//Assert
 		Assert.AreEqual(expected, actual);
 	}
+
+	[Test(Description = "Позитивный тест геттера и сеттера Email")]
+	public void Test_Email_CorrectValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var expected = "hjasfd@mail.ru";
+		contact.Email = expected;
+		var actual = contact.FullName;
+
+		//Assert
+		Assert.AreEqual(expected, actual);
+	}
+
+	[Test(Description = "Негативный тест геттера и сеттера Email (длина email больше 100)")]
+	public void Test_Email_FalseValue_EmailLength()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var wrongEmail = "hjdfdsbhdvhsbhjacsbhjacsbasbhabcshbascbhjacsbhjasbchabschbascbacsbhjacsbhjascbhjaschaschvjacsvhjavscavschvacsvhjacshjavschvacsvhascvhjasvchacsjvacvajcvjhacjhacsvhjv@mail.ru"
+
+		//Assert
+		Assert.Throws<ArgumentException>(() => contact.FullName = wrongEmail,
+			"Должно возникать исключение, если email длиннее 100 символов");
+	}
+
+	[Test(Description = "Негативный тест геттера и сеттера Email (email должен соответствовать Regex паттерну)")]
+	public void Test_Email_FalseValue_RegexPattern()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var wrongEmail = "jskdfhk";
+
+		//Assert
+		Assert.Throws<ArgumentException>(() => contact.FullName = wrongEmail,
+			"Должно возникать исключение, если email не соотвествует Regex паттерну");
+	}
 }
