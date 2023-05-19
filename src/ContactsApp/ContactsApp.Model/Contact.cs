@@ -58,6 +58,10 @@ public class Contact : ICloneable
 	/// </summary>
 	private string _vkId;
 
+	/// <summary>
+	/// Создает копию контакта.
+	/// </summary>
+	/// <returns>Копия контакта.</returns>
 	public object Clone()
 	{
 		return MemberwiseClone();
