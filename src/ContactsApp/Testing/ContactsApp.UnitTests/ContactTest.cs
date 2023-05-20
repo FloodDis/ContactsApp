@@ -26,7 +26,7 @@ public class ContactTest
 
 		//Testing
 		var wrongFullName = "Сеченов ВладиславСеченов ВладиславСеченов ВладиславСеченов ВладиславСеченов ВладиславСеченов ВладиславСеченов ВладиславСеченов Владислав";
-		
+
 		//Assert
 		Assert.Throws<ArgumentException>(() => contact.FullName = wrongFullName,
 			"Должно возникать исключение, если полное имя длиннее 100 символов");
@@ -69,7 +69,7 @@ public class ContactTest
 		Contact contact = new Contact();
 
 		//Testing
-		var wrongEmail = "hjdfdsbhdvhsbhjacsbhjacsbasbhabcshbascbhjacsbhjasbchabschbascbacsbhjacsbhjascbhjaschaschvjacsvhjavscavschvacsvhjacshjavschvacsvhascvhjasvchacsjvacvajcvjhacjhacsvhjv@mail.ru"
+		var wrongEmail = "hjdfdsbhdvhsbhjacsbhjacsbasbhabcshbascbhjacsbhjasbchabschbascbacsbhjacsbhjascbhjaschaschvjacsvhjavscavschvacsvhjacshjavschvacsvhascvhjasvchacsjvacvajcvjhacjhacsvhjv@mail.ru";
 
 		//Assert
 		Assert.Throws<ArgumentException>(() => contact.Email = wrongEmail,
@@ -157,7 +157,7 @@ public class ContactTest
 		Contact contact = new Contact();
 
 		//Testing
-		var wrongDateOfBirth = new DateTime(1899,10,12);
+		var wrongDateOfBirth = new DateTime(1899, 10, 12);
 
 		//Assert
 		Assert.Throws<ArgumentException>(() => contact.DateOfBirth = wrongDateOfBirth,
@@ -171,10 +171,39 @@ public class ContactTest
 		Contact contact = new Contact();
 
 		//Testing
-		var wrongDateOfBirth = new DateTime(DateTime.Today.Year, 1, 3);
+		var wrongDateOfBirth = new DateTime(DateTime.Today.Year + 1, 1, 3);
 
 		//Assert
 		Assert.Throws<ArgumentException>(() => contact.DateOfBirth = wrongDateOfBirth,
 			"Должно возникать исключение, если номер телефона не соотвествует Regex паттерну");
+	}
+
+	[Test(Description = "Позитивный тест геттера и сеттера VKId")]
+	public void Test_VKId_CorrectValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var expected = "12423552";
+		contact.VKId = expected;
+		var actual = contact.VKId;
+
+		//Assert
+		Assert.AreEqual(expected, actual);
+	}
+
+	[Test(Description = "Негативный тест геттера и сеттера VKId (длина VKId больше 100)")]
+	public void Test_VKId_FalseValue()
+	{
+		//Setup
+		Contact contact = new Contact();
+
+		//Testing
+		var wrongVKId = "hjdfdsbhdvhsbhjacsbhjacsbasbhabcshbascbhjacsbhjasbchabschbascbacsbhjacsbhjascbhjaschasc1234612412";
+
+		//Assert
+		Assert.Throws<ArgumentException>(() => contact.VKId = wrongVKId,
+			"Должно возникать исключение, если VKId длиннее 50 символов");
 	}
 }
