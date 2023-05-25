@@ -19,13 +19,8 @@ public class Project
 	}
 
 	/// <summary>
-	/// Возвращает кол-во контактов в списке.
+	/// Возвращает полный список контактов. 
 	/// </summary>
-	public int ContactsCount
-	{
-		get { return _contacts.Count; }
-	}
-
 	public List<Contact> Contacts
 	{
 		get { return _contacts; }
@@ -62,6 +57,11 @@ public class Project
 		_contacts.Remove(contact);
 	}
 
+	/// <summary>
+	/// Определяет индекс контакта в списке _contacts.
+	/// </summary>
+	/// <param name="contact">Контакт, индекс которого нужно определить.</param>
+	/// <returns>Индекс контакта.</returns>
 	public int IndexOf(Contact contact)
 	{
 		int index = _contacts.IndexOf(contact);
@@ -112,10 +112,10 @@ public class Project
 	}
 
 	/// <summary>
-	/// Отсортировать список контактов по полному имени
+	/// Отсортировать список контактов по полному имени.
 	/// </summary>
-	/// <param name="contactsList">Список контактов</param>
-	/// <returns>Отсортированный список контактов</returns>
+	/// <param name="contactsList">Список контактов.</param>
+	/// <returns>Отсортированный список контактов.</returns>
 	public List<Contact> SortContactsByFullName(List<Contact> contactsList)
 	{
 		var sortedContacts = contactsList.OrderBy(x => x.FullName);
