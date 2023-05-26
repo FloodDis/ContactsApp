@@ -35,9 +35,9 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\ContactsApp.View\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
-Source: "..\ContactsApp.View\bin\Release\net6.0-windows\*.dll"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
-Source: "..\ContactsApp.View\bin\Release\net6.0-windows\*.runtimeconfig.json"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
+Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
+Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\net6.0-windows\*.dll"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
+Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\net6.0-windows\*.runtimeconfig.json"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
 
 [Registry]
 Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
