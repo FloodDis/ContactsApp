@@ -31,8 +31,8 @@ public partial class MainForm : Form
 		}
 		catch
 		{
-			MessageBox.Show("Can't load list of saved notes from path", "Error",
-				MessageBoxButtons.OK, MessageBoxIcon.Warning);
+			_project = new Project();
+			UpdateBirthdays();
 		}
 	}
 
@@ -176,28 +176,31 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void RemoveContactButton_Click(object sender, EventArgs e)
 	{
-		Contact contactToDelete = _displayedContacts[ContactsListBox.SelectedIndex];
-
-		if (ContactsListBox.SelectedIndex == -1)
+		try
 		{
-			ClearSelectedContact();
-			return;
-		}
+			Contact contactToDelete = _displayedContacts[ContactsListBox.SelectedIndex];
 
-		DialogResult result = MessageBox.Show($"Do you really want to remove {contactToDelete.FullName}?",
-			"Remove element",
-			MessageBoxButtons.OKCancel);
-		if (result == DialogResult.OK)
-		{
-			_project.RemoveContact(contactToDelete);
-			UpdateListBox();
-			if (ContactsListBox.Items.Count == 0)
+			DialogResult result = MessageBox.Show($"Do you really want to remove {contactToDelete.FullName}?",
+				"Remove element",
+				MessageBoxButtons.OKCancel);
+			if (result == DialogResult.OK)
 			{
-				ClearSelectedContact();
+				_project.RemoveContact(contactToDelete);
+				UpdateListBox();
+				if (ContactsListBox.Items.Count == 0)
+				{
+					ClearSelectedContact();
+				}
+				ProjectManager.Save(_project);
+				UpdateBirthdays();
 			}
-			ProjectManager.Save(_project);
-			UpdateBirthdays();
 		}
+		catch
+		{
+			MessageBox.Show("Выберите контакт для удаления",
+				"Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+		}
+		
 	}
 
 	/// <summary>
