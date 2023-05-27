@@ -24,7 +24,6 @@ internal class ProjectTests
 		// Setup
 		var project = new Project();
 
-		// Testing
 		var firstContact = new Contact();
 		var secondContact = new Contact();
 		var thirdContact = new Contact();
@@ -35,6 +34,7 @@ internal class ProjectTests
 
 		project.RemoveContact(firstContact);
 
+		// Testing
 		var expected = secondContact;
 		var actual = project[0];
 
@@ -47,10 +47,11 @@ internal class ProjectTests
 	{
 		// Setup
 		var project = new Project();
+		var firstContact = new Contact();
 
 		// Testing
 		var expected = 0;
-		var firstContact = new Contact();
+		
 		project.AddContact(firstContact);
 		var actual = project.IndexOf(firstContact);
 
@@ -63,6 +64,7 @@ internal class ProjectTests
 	{
 		// Setup
 		var project = new Project();
+
 		var firstContact = new Contact();
 		firstContact.DateOfBirth = new DateTime(2002, DateTime.Today.Month, DateTime.Today.Day);
 		var secondContact = new Contact();

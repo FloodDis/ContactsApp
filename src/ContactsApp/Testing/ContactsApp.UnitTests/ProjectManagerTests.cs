@@ -16,6 +16,7 @@ internal class ProjectManagerTests
 			PhoneNumber = "+7 (234) 213-43-54",
 			FullName = "Test"
 		};
+
 		project.AddContact(contactToAdd);
 		project.AddContact(contactToAdd);
 

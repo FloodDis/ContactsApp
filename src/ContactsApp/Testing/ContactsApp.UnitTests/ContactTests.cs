@@ -121,7 +121,6 @@ public class ContactTests
 		//Setup
 		Contact contact = new Contact();
 
-		//Testing
 		var firstWrongPhoneNumber = "98643";
 		var secondWrongPhoneNumber = "75823";
 		var thirdWrongPhoneNumber = "+74321";
@@ -156,7 +155,6 @@ public class ContactTests
 		//Setup
 		Contact contact = new Contact();
 
-		//Testing
 		var wrongDateOfBirth = new DateTime(1899, 10, 12);
 
 		//Assert
@@ -170,7 +168,6 @@ public class ContactTests
 		//Setup
 		Contact contact = new Contact();
 
-		//Testing
 		var wrongDateOfBirth = new DateTime(DateTime.Today.Year + 1, 1, 3);
 
 		//Assert
@@ -199,7 +196,6 @@ public class ContactTests
 		//Setup
 		Contact contact = new Contact();
 
-		//Testing
 		var wrongVKId = "hjdfdsbhdvhsbhjacsbhjacsbasbhabcshbascbhjacsbhjasbchabschbascbacsbhjacsbhjascbhjaschasc1234612412";
 
 		//Assert
