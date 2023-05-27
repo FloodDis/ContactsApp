@@ -1,7 +1,7 @@
 namespace ContactsApp.UnitTests;
 
 [TestFixture]
-public class ContactTest
+public class ContactTests
 {
 	[Test(Description = "Позитивный тест геттера и сеттера FullName")]
 	public void Test_FullName_CorrectValue()
@@ -142,7 +142,7 @@ public class ContactTest
 		Contact contact = new Contact();
 
 		//Testing
-		var expected = DateTime.Now;
+		var expected = new DateTime(2002,08,23);
 		contact.DateOfBirth = expected;
 		var actual = contact.DateOfBirth;
 

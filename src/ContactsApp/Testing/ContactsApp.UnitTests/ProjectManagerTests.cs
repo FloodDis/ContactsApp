@@ -1,24 +1,31 @@
 ﻿namespace ContactsApp.UnitTests;
 
 [TestFixture]
-internal class ProjectManagerTest
+internal class ProjectManagerTests
 {
 	[Test(Description = "Тест сохранения и загрузки списка контактов")]
 	public void Test_ProjectManager_SaveLoad()
 	{
 		// Setup
 		var project = new Project();
-		var contactToAdd = ContactFactory.CreateContact();
+		var contactToAdd = new Contact
+		{
+			DateOfBirth = new DateTime(2002, 08, 13),
+			Email = "hfjks@mail.ru",
+			VKId = "12434",
+			PhoneNumber = "+7 (234) 213-43-54",
+			FullName = "Test"
+		};
+		project.AddContact(contactToAdd);
+		project.AddContact(contactToAdd);
 
 		// Testing
-		project.AddContact(contactToAdd);
-		project.AddContact(contactToAdd);
 		var expected = project.Contacts;
 		ProjectManager.Save(project);
 		var actual = ProjectManager.Load().Contacts;
 
 		// Assert
-		Assert.AreEqual(expected.ToString(), actual.ToString());
+		CollectionAssert.AreEqual(expected.ToString(), actual.ToString());
 
 		if (File.Exists(ProjectManager.Path))
 		{

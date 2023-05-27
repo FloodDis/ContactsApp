@@ -1,7 +1,7 @@
 ﻿namespace ContactsApp.UnitTests;
 
 [TestFixture]
-internal class ProjectTest
+internal class ProjectTests
 {
 	[Test(Description = "Тест добавления контакта и получения контакта из списка по индексу")]
 	public void Test_Project_IndexAddContact()
@@ -63,8 +63,6 @@ internal class ProjectTest
 	{
 		// Setup
 		var project = new Project();
-
-		// Testing
 		var firstContact = new Contact();
 		firstContact.DateOfBirth = new DateTime(2002, DateTime.Today.Month, DateTime.Today.Day);
 		var secondContact = new Contact();
@@ -73,6 +71,7 @@ internal class ProjectTest
 		project.AddContact(firstContact);
 		project.AddContact(secondContact);
 
+		// Testing
 		var expected = project.FindContactsByBirthDay();
 		var actual = new List<Contact>
 		{
@@ -89,7 +88,6 @@ internal class ProjectTest
 		// Setup
 		var project = new Project();
 
-		// Testing
 		var firstContact = new Contact();
 		firstContact.FullName = "Сеченов Владислав";
 		var secondContact = new Contact();
@@ -98,6 +96,7 @@ internal class ProjectTest
 		project.AddContact(firstContact);
 		project.AddContact(secondContact);
 
+		// Testing
 		var expected = project.FindContactsBySubstring(project.Contacts,"Артем");
 		var actual = new List<Contact>
 		{
@@ -114,7 +113,6 @@ internal class ProjectTest
 		// Setup
 		var project = new Project();
 
-		// Testing
 		var firstContact = new Contact();
 		firstContact.FullName = "Сеченов Владислав";
 		var secondContact = new Contact();
@@ -123,6 +121,7 @@ internal class ProjectTest
 		project.AddContact(firstContact);
 		project.AddContact(secondContact);
 
+		// Testing
 		var expected = project.SortContactsByFullName(project.Contacts);
 		var actual = new List<Contact>
 		{
