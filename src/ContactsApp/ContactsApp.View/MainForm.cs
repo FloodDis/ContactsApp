@@ -41,6 +41,9 @@ public partial class MainForm : Form
 	/// </summary>
 	private void UpdateListBox()
 	{
+		int index = ContactsListBox.SelectedIndex;
+		Contact selectedContact = _displayedContacts[index];
+
 		List<Contact> contacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
 		contacts = _project.SortContactsByFullName(contacts);
 		_displayedContacts.Clear();
