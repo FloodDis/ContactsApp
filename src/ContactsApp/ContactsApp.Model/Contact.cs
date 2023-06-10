@@ -78,7 +78,7 @@ public class Contact : ICloneable
 		}
 		set
 		{
-			ValueValidator.CheckLengthOfString(value, 100, "Полное имя");
+			ContactValidator.CheckLengthOfString(value, 100, "Полное имя");
 			TextInfo textInfo = CultureInfo.CurrentCulture.TextInfo;
 			string titleCase = textInfo.ToTitleCase(value);
 			_fullName = titleCase;
@@ -96,8 +96,8 @@ public class Contact : ICloneable
 		}
 		set
 		{
-			ValueValidator.CheckLengthOfString(value, 100, "Email");
-			ValueValidator.CheckValueOnRegexPattern(value, _emailRegex, "Email");
+			ContactValidator.CheckLengthOfString(value, 100, "Email");
+			ContactValidator.CheckValueOnRegexPattern(value, _emailRegex, "Email");
 			_email = value;
 		}
 	}
@@ -113,7 +113,7 @@ public class Contact : ICloneable
 		}
 		set
 		{
-			ValueValidator.CheckValueOnRegexPattern(value, _phoneNumberRegex, "Номер телефона");
+			ContactValidator.CheckValueOnRegexPattern(value, _phoneNumberRegex, "Номер телефона");
 			_phoneNumber = value;
 		}
 	}
@@ -129,8 +129,8 @@ public class Contact : ICloneable
 		}
 		set
 		{
-			ValueValidator.CheckMinIntValue(value.Year, 1900, "Год рождения");
-			ValueValidator.CheckMaxIntValue(value.Year, DateTime.Now.Year, "Дата рождения");
+			ContactValidator.CheckMinIntValue(value.Year, 1900, "Год рождения");
+			ContactValidator.CheckMaxIntValue(value.Year, DateTime.Now.Year, "Дата рождения");
 			_dateOfBirth = value;
 		}
 	}
@@ -146,7 +146,7 @@ public class Contact : ICloneable
 		}
 		set
 		{
-			ValueValidator.CheckLengthOfString(value, 50, "VKId");
+			ContactValidator.CheckLengthOfString(value, 50, "VKId");
 			_vkId = value;
 		}
 	}

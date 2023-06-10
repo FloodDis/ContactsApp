@@ -2,11 +2,10 @@
 #define MyAppVersion "1.0.0"
 #define MyAppPublisher "Vladislav Sechenov"
 #define MyAppURL "https://github.com/FloodDis/ContactsApp"
+#define Configuration "Release"
 #define MyAppExeName "ContactsApp.View.exe"
-#define MyAppAssocName MyAppName + " File"
-#define MyAppAssocExt ".myp"
-#define MyAppAssocKey StringChange(MyAppAssocName, " ", "") + MyAppAssocExt
 #define InstallerFileName "ContactsAppSetup " + GetDateTimeString('dd-mm-yyyy hh-nn-ss', '-', ':');
+#define SourceFiles "..\src\ContactsApp.View\bin\" + Configuration + "\net6.0-windows"
 
 [Setup]
 AppId={{631C5F5A-18EC-4C5B-8A83-7AD08DB8E96C}
@@ -35,16 +34,9 @@ Name: "russian"; MessagesFile: "compiler:Languages\Russian.isl"
 Name: "desktopicon"; Description: "{cm:CreateDesktopIcon}"; GroupDescription: "{cm:AdditionalIcons}"; Flags: unchecked
 
 [Files]
-Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\net6.0-windows\{#MyAppExeName}"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
-Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\net6.0-windows\*.dll"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
-Source: "..\src\ContactsApp\ContactsApp.View\bin\Release\net6.0-windows\*.runtimeconfig.json"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
-
-[Registry]
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocExt}\OpenWithProgids"; ValueType: string; ValueName: "{#MyAppAssocKey}"; ValueData: ""; Flags: uninsdeletevalue
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}"; ValueType: string; ValueName: ""; ValueData: "{#MyAppAssocName}"; Flags: uninsdeletekey
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\DefaultIcon"; ValueType: string; ValueName: ""; ValueData: "{app}\{#MyAppExeName},0"
-Root: HKA; Subkey: "Software\Classes\{#MyAppAssocKey}\shell\open\command"; ValueType: string; ValueName: ""; ValueData: """{app}\{#MyAppExeName}"" ""%1"""
-Root: HKA; Subkey: "Software\Classes\Applications\{#MyAppExeName}\SupportedTypes"; ValueType: string; ValueName: ".myp"; ValueData: ""
+Source: "{#SourceFiles}\{#MyAppExeName}"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
+Source: "{#SourceFiles}\*.dll"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
+Source: "{#SourceFiles}\*.runtimeconfig.json"; DestDir: "{autopf}\SechenovVV\{#MyAppName}"; Flags: ignoreversion
 
 [Icons]
 Name: "{group}\{#MyAppName}"; Filename: "{app}\{#MyAppExeName}"

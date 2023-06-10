@@ -3,7 +3,7 @@
 /// <summary>
 /// Класс для валидации данных.
 /// </summary>
-public static class ValueValidator
+public static class ContactValidator
 {
 	/// <summary>
 	/// Проверяет строку по длине.
