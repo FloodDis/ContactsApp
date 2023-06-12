@@ -24,7 +24,6 @@ OutputBaseFilename={#InstallerFileName}
 Compression=lzma
 SolidCompression=yes
 WizardStyle=modern
-UninstallDisplayIcon=
 
 [Languages]
 Name: "english"; MessagesFile: "compiler:Default.isl"

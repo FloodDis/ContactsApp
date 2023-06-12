@@ -41,8 +41,8 @@ public partial class MainForm : Form
 	/// </summary>
 	private void UpdateListBox()
 	{
-		int index = ContactsListBox.SelectedIndex;
-		Contact selectedContact = _displayedContacts[index];
+		/*int index = ContactsListBox.SelectedIndex;
+		Contact selectedContact = _displayedContacts[index];*/
 
 		List<Contact> contacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
 		contacts = _project.SortContactsByFullName(contacts);
@@ -127,6 +127,21 @@ public partial class MainForm : Form
 		}
 
 		NotificationSurnamesLabel.Text = fullMessage;
+	}
+
+	/// <summary>
+	/// Обновляет отображаемые данные контакта.
+	/// </summary>
+	private void UpdateSelectedIndexChanged()
+	{
+		if (ContactsListBox.SelectedIndex == -1)
+		{
+			ClearSelectedContact();
+		}
+		else
+		{
+			UpdateSelectedContact(ContactsListBox.SelectedIndex);
+		}
 	}
 
 	/// <summary>
@@ -293,12 +308,7 @@ public partial class MainForm : Form
 	/// <param name="e"></param>
 	private void ContactsListBox_SelectedIndexChanged(object sender, EventArgs e)
 	{
-		if (ContactsListBox.SelectedIndex == -1)
-		{
-			ClearSelectedContact();
-			return;
-		}
-		UpdateSelectedContact(ContactsListBox.SelectedIndex);
+		UpdateSelectedIndexChanged();
 	}
 
 	/// <summary>
@@ -310,6 +320,7 @@ public partial class MainForm : Form
 	private void FindTextBox_TextChanged(object sender, EventArgs e)
 	{
 		_displayedContacts = _project.FindContactsBySubstring(_project.Contacts, FindTextBox.Text);
+		ContactsListBox.SelectedIndex = -1;
 		UpdateListBox();
 	}
 
